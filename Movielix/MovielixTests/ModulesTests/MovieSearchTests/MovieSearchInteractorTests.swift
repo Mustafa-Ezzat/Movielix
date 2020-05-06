@@ -8,20 +8,27 @@
 import XCTest
 @testable import Movielix
 
-class MovieResponsableTests: XCTestCase {
-    var sut: MovieResponsable!
+class MovieSearchInteractorTests: XCTestCase {
+    var sut: MovieSearchInteractor!
     
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        super.setUp()
+        // should init after super.setup()
+        sut = MovieSearchInteractor()
     }
 
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        // should deinit before super.tearDown()
+        sut = nil
+        super.tearDown()
+    }
+    
+    func fetchMovies(completionHandler: @escaping (Result<MovieResponse, Error>) -> Void) {
+       
     }
 
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func test_MovieSearchInteractor_ReadMoviesFromJson() {
+        sut.readMovies()
     }
 
     func testPerformanceExample() {

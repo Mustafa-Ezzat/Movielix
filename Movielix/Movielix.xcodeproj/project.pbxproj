@@ -11,6 +11,11 @@
 		9332251662091178F36C4CC6 /* Pods_Movielix.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5843E2EFA73F9DDAA4B565C2 /* Pods_Movielix.framework */; };
 		A94A13CBE1FBB51660A6743F /* Pods_MovielixTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9630F13CF3940A9C6195E33 /* Pods_MovielixTests.framework */; };
 		D693550F2463180D00B90B0F /* stay-home-stay-safe.json in Resources */ = {isa = PBXBuildFile; fileRef = D693550E2463180D00B90B0F /* stay-home-stay-safe.json */; };
+		D69355132463291500B90B0F /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69355122463291500B90B0F /* ReusableView.swift */; };
+		D69355162463299200B90B0F /* UITableViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69355152463299200B90B0F /* UITableViewCell+Extension.swift */; };
+		D693551824632A1100B90B0F /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D693551724632A1100B90B0F /* UITableView+Extension.swift */; };
+		D693551A24632A5800B90B0F /* UITableViewHeaderFooterView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D693551924632A5800B90B0F /* UITableViewHeaderFooterView+Extension.swift */; };
+		D693551C24632C6E00B90B0F /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D693551B24632C6E00B90B0F /* UIViewController+Extension.swift */; };
 		D69481A12462FAE000CE18D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69481A02462FAE000CE18D5 /* AppDelegate.swift */; };
 		D69481A52462FAE000CE18D5 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69481A42462FAE000CE18D5 /* LaunchViewController.swift */; };
 		D69481A82462FAE000CE18D5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D69481A62462FAE000CE18D5 /* Main.storyboard */; };
@@ -47,6 +52,11 @@
 		87467C7D3B3C7D0399372BBF /* Pods-MovielixTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovielixTests.release.xcconfig"; path = "Target Support Files/Pods-MovielixTests/Pods-MovielixTests.release.xcconfig"; sourceTree = "<group>"; };
 		BC2098BDFFAE6FED290C5D4B /* Pods-MovielixTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovielixTests.debug.xcconfig"; path = "Target Support Files/Pods-MovielixTests/Pods-MovielixTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D693550E2463180D00B90B0F /* stay-home-stay-safe.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "stay-home-stay-safe.json"; sourceTree = "<group>"; };
+		D69355122463291500B90B0F /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
+		D69355152463299200B90B0F /* UITableViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extension.swift"; sourceTree = "<group>"; };
+		D693551724632A1100B90B0F /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
+		D693551924632A5800B90B0F /* UITableViewHeaderFooterView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewHeaderFooterView+Extension.swift"; sourceTree = "<group>"; };
+		D693551B24632C6E00B90B0F /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		D694819D2462FAE000CE18D5 /* Movielix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Movielix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D69481A02462FAE000CE18D5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D69481A42462FAE000CE18D5 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
@@ -104,6 +114,25 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		D693551024631D4D00B90B0F /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		D69355112463243D00B90B0F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D69355122463291500B90B0F /* ReusableView.swift */,
+				D69355152463299200B90B0F /* UITableViewCell+Extension.swift */,
+				D693551724632A1100B90B0F /* UITableView+Extension.swift */,
+				D693551924632A5800B90B0F /* UITableViewHeaderFooterView+Extension.swift */,
+				D693551B24632C6E00B90B0F /* UIViewController+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		D69481942462FAE000CE18D5 = {
 			isa = PBXGroup;
 			children = (
@@ -129,6 +158,8 @@
 		D694819F2462FAE000CE18D5 /* Movielix */ = {
 			isa = PBXGroup;
 			children = (
+				D69355112463243D00B90B0F /* Extensions */,
+				D693551024631D4D00B90B0F /* Modules */,
 				D69481A02462FAE000CE18D5 /* AppDelegate.swift */,
 				D69481A42462FAE000CE18D5 /* LaunchViewController.swift */,
 				D69481A62462FAE000CE18D5 /* Main.storyboard */,
@@ -408,7 +439,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D69355132463291500B90B0F /* ReusableView.swift in Sources */,
+				D69355162463299200B90B0F /* UITableViewCell+Extension.swift in Sources */,
+				D693551824632A1100B90B0F /* UITableView+Extension.swift in Sources */,
 				D69481A52462FAE000CE18D5 /* LaunchViewController.swift in Sources */,
+				D693551C24632C6E00B90B0F /* UIViewController+Extension.swift in Sources */,
+				D693551A24632A5800B90B0F /* UITableViewHeaderFooterView+Extension.swift in Sources */,
 				D69481A12462FAE000CE18D5 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -22,10 +22,6 @@ class MovieSearchInteractorTests: XCTestCase {
         sut = nil
         super.tearDown()
     }
-    
-    func fetchMovies(completionHandler: @escaping (Result<MovieResponse, Error>) -> Void) {
-       
-    }
 
     func test_MovieSearchInteractor_ReadMoviesFromJson() {
         sut.readMovies() { result in

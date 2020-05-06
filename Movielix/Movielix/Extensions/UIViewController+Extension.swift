@@ -7,31 +7,31 @@
 //
 
 import UIKit
-
 extension UIViewController: ReusableView {
-
-   static var defaultReuseIdentifier: String {
-          return String(describing: self)
+    static var defaultReuseIdentifier: String {
+        return String(describing: self)
     }
+}
 
-    class func instintiateFromNib() -> UIViewController {
+protocol XIB {
+    static func instintiate() -> Self
+}
+
+extension XIB where Self: UIViewController {
+    static func instintiate() -> Self {
         return self.init(nibName: self.defaultReuseIdentifier, bundle: nil)
     }
+}
 
+extension UIViewController: XIB {}
+
+extension UIViewController {
     func hideNavigation() {
         navigationController?.navigationBar.isHidden = true
     }
     
     func showNavigation() {
         navigationController?.navigationBar.isHidden = false
-    }
-    
-    func setRoot(vc: UIViewController) {
-        guard let keyWindow = UIApplication.shared.keyWindow else {
-            return
-        }
-        keyWindow.rootViewController = vc
-        keyWindow.makeKeyAndVisible()
     }
 }
 

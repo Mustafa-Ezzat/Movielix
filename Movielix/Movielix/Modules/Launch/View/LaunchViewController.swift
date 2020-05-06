@@ -11,6 +11,7 @@ import Lottie
 
 class LaunchViewController: UIViewController {
     @IBOutlet weak var animationView: AnimationView!
+    weak var coordinator: LaunchCoordinator?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +21,7 @@ class LaunchViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         startAnimation()
+        hideNavigation()
     }
     
     func startAnimation() {
@@ -31,14 +33,13 @@ class LaunchViewController: UIViewController {
             guard let self = self else {
                 return
             }
-            self.start()
+            self.startSearchMovie()
         }
     }
     
-    func start() {
-        let vc = MovieSearchViewController.instintiateFromNib()
-        let navigationController = NavigationController(rootViewController: vc)
-        setRoot(vc: navigationController)
+    func startSearchMovie() {
+        coordinator?.startSearchMovie()
     }
 }
+
 

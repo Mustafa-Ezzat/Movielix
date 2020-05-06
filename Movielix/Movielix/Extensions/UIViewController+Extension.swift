@@ -14,8 +14,25 @@ extension UIViewController: ReusableView {
           return String(describing: self)
     }
 
-    class func instintiateFromNib() -> Self {
+    class func instintiateFromNib() -> UIViewController {
         return self.init(nibName: self.defaultReuseIdentifier, bundle: nil)
     }
 
+    func hideNavigation() {
+        navigationController?.navigationBar.isHidden = true
+    }
+    
+    func showNavigation() {
+        navigationController?.navigationBar.isHidden = false
+    }
+    
+    func setRoot(vc: UIViewController) {
+        guard let keyWindow = UIApplication.shared.keyWindow else {
+            return
+        }
+        keyWindow.rootViewController = vc
+        keyWindow.makeKeyAndVisible()
+    }
 }
+
+

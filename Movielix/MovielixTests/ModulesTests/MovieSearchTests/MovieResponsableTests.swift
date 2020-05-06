@@ -1,16 +1,16 @@
 //
-//  MovielixTests.swift
+//  MovieResponsableTests.swift
 //  MovielixTests
 //
 //  Created by Mustafa Ezzat on 5/6/20.
 //  Copyright © 2020 Swvl. All rights reserved.
 //
-
 import XCTest
 @testable import Movielix
 
-class MovielixTests: XCTestCase {
-
+class MovieResponsableTests: XCTestCase {
+    var sut: MovieResponsable!
+    
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }

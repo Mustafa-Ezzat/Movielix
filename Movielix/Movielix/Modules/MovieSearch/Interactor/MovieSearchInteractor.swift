@@ -18,6 +18,18 @@ class MovieSearchInteractor {
 
 extension MovieSearchInteractor: MovieSearchInteractorProtocol {
     func readMovies(completionHandler: @escaping (Result<MovieResponse, Error>) -> Void) {
-        
+        guard let path = Bundle.main.path(forResource: "movies", ofType: "json") else {
+           preconditionFailure("Invalid data")
+        }
+        do {
+           let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
+           let sut = MovieResponsable()
+           sut.map(data) { result in
+               completionHandler(result)
+           }
+        } catch {
+            // handle error
+           preconditionFailure("Invalid data")
+        }
     }
 }

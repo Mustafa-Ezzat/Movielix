@@ -9,7 +9,7 @@ import XCTest
 @testable import Movielix
 
 class MovieSearchInteractorTests: XCTestCase {
-    var sut: MovieSearchInteractor!
+    var sut: MovieSearchInteractorProtocol!
     
     override func setUp() {
         super.setUp()
@@ -28,7 +28,14 @@ class MovieSearchInteractorTests: XCTestCase {
     }
 
     func test_MovieSearchInteractor_ReadMoviesFromJson() {
-        sut.readMovies()
+        sut.readMovies() { result in
+            switch(result) {
+            case .success(let response):
+                XCTAssertGreaterThanOrEqual(response.movies.count, 0)
+            case .failure(let error):
+                XCTAssert(false, error.localizedDescription)
+            }
+        }
     }
 
     func testPerformanceExample() {

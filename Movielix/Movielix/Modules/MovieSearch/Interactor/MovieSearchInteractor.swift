@@ -9,7 +9,7 @@
 import Foundation
 
 protocol MovieSearchInteractorProtocol {
-    
+    func readMovies(completionHandler: @escaping (Result<MovieResponse, Error>) -> Void)
 }
 
 class MovieSearchInteractor {
@@ -17,4 +17,7 @@ class MovieSearchInteractor {
 }
 
 extension MovieSearchInteractor: MovieSearchInteractorProtocol {
+    func readMovies(completionHandler: @escaping (Result<MovieResponse, Error>) -> Void) {
+        
+    }
 }

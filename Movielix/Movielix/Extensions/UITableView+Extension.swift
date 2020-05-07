@@ -6,8 +6,6 @@
 //  Copyright © 2020 Swvl. All rights reserved.
 //
 
-import Foundation
-
 import UIKit
 
 extension UITableView {

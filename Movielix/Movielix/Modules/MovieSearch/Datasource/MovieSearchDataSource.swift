@@ -24,6 +24,13 @@ class MovieSearchDataSource: NSObject, DataSource {
 }
 
 extension MovieSearchDataSource: UITableViewDataSource {
+    func validIndex(_ indexPath: IndexPath) -> Bool {
+        guard indexPath.section < list.count, indexPath.row < list[indexPath.section].movies.count else {
+            return false
+        }
+        return true
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return list.count
     }
@@ -33,7 +40,7 @@ extension MovieSearchDataSource: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: MovieSearchCell = tableView.dequeueCell(for: indexPath)
-        if list.count > indexPath.row {
+        if validIndex(indexPath) {
             let movie = list[indexPath.section].movies[indexPath.row]
             cell.configure(movie)
         }
@@ -61,8 +68,11 @@ extension MovieSearchDataSource: UITableViewDataSource {
 
 extension MovieSearchDataSource: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        view?.searchController.dismiss(animated: true) { [unowned self] in
-            self.view?.coordinator?.starthMovieDetails()
+        if validIndex(indexPath) {
+            let movie = list[indexPath.section].movies[indexPath.row]
+            view?.searchController.dismiss(animated: true) { [unowned self] in
+                self.view?.coordinator?.starthMovieDetails(movie: movie)
+            }
         }
     }
 }

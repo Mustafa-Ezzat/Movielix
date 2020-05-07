@@ -16,7 +16,7 @@ struct Movie: Codable {
     let rating: Int
 }
 
-extension Movie: Comparable {
+extension Movie: Comparable & Hashable {
     static func < (lhs: Movie, rhs: Movie) -> Bool {
         lhs.rating < rhs.rating
     }

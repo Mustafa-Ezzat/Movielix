@@ -31,8 +31,8 @@ class MovieSearchCoordinator: Coordinator {
         navigationController.viewControllers = [view]
     }
     
-    func starthMovieDetails() {
-        movieSearchCoordinator = MovieDetailsCoordinator(navigationController: navigationController)
+    func starthMovieDetails(movie: Movie) {
+        movieSearchCoordinator = MovieDetailsCoordinator(navigationController: navigationController, movie: movie)
         movieSearchCoordinator?.start()
     }
 

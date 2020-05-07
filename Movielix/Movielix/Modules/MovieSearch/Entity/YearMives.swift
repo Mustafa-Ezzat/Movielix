@@ -13,7 +13,7 @@ struct YearMives<T> where T: Hashable & Comparable {
     let movies: [Movie]    
 }
 
-extension YearMives: Comparable {
+extension YearMives: Comparable & Hashable {
     static func < (lhs: YearMives, rhs: YearMives) -> Bool {
         return lhs.year < rhs.year
     }

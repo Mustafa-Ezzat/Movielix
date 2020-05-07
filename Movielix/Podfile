@@ -6,9 +6,11 @@ target 'Movielix' do
   use_frameworks!
 
   # Pods for Movielix
+  pod 'Moya'
   pod 'lottie-ios'
   pod 'Cosmos'
-  
+  pod 'Nuke'
+
   target 'MovielixTests' do
     inherit! :search_paths
     # Pods for testing

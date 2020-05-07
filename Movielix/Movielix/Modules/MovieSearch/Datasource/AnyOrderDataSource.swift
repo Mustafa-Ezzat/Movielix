@@ -18,6 +18,13 @@ class AnyOrderDataSource: NSObject, DataSource {
 }
 
 extension AnyOrderDataSource: UITableViewDataSource {
+    func validIndex(_ indexPath: IndexPath) -> Bool {
+        guard indexPath.row < list.count  else {
+            return false
+        }
+        return true
+    }
+
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -27,7 +34,7 @@ extension AnyOrderDataSource: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: MovieSearchCell = tableView.dequeueCell(for: indexPath)
-        if list.count > indexPath.row {
+        if validIndex(indexPath) {
             let movie = list[indexPath.row]
             cell.configure(movie)
         }
@@ -37,7 +44,10 @@ extension AnyOrderDataSource: UITableViewDataSource {
 
 extension AnyOrderDataSource: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        view?.coordinator?.starthMovieDetails()
+        if validIndex(indexPath) {
+            let movie = list[indexPath.row]
+            self.view?.coordinator?.starthMovieDetails(movie: movie)
+        }
     }
 }
 

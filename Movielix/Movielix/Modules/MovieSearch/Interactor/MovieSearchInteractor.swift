@@ -42,10 +42,11 @@ extension MovieSearchInteractor: MovieSearchInteractorProtocol {
             self.reader?.read() {  result in
                 switch result {
                 case .success(let response):
-                    self.categorizer?.categorize(movies: response.movies) { list in
+                    let uniqueMovies = Set<Movie>(response.movies)
+                    self.categorizer?.categorize(movies: uniqueMovies) { list in
                         self.list = list
+                        presenter.present(list: response.movies, yearList: list)
                     }
-                    presenter.present(list: response.movies)
                 case .failure(let error):
                     print(error.localizedDescription)
                 }

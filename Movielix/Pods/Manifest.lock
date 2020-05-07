@@ -1,20 +1,38 @@
 PODS:
+  - Alamofire (4.9.0)
   - Cosmos (21.0.0)
   - lottie-ios (3.1.8)
+  - Moya (13.0.1):
+    - Moya/Core (= 13.0.1)
+  - Moya/Core (13.0.1):
+    - Alamofire (~> 4.1)
+    - Result (~> 4.1)
+  - Nuke (8.4.1)
+  - Result (4.1.0)
 
 DEPENDENCIES:
   - Cosmos
   - lottie-ios
+  - Moya
+  - Nuke
 
 SPEC REPOS:
   trunk:
+    - Alamofire
     - Cosmos
     - lottie-ios
+    - Moya
+    - Nuke
+    - Result
 
 SPEC CHECKSUMS:
+  Alamofire: afc3e7c6db61476cb45cdd23fed06bad03bbc321
   Cosmos: 3dfb6e4ba48bd48b8c9aa2a77048ae11ed114f96
   lottie-ios: 48fac6be217c76937e36e340e2d09cf7b10b7f5f
+  Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
+  Nuke: d780e3507a86b86c589ab3cc5cd302d5456f06fb
+  Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
 
-PODFILE CHECKSUM: 0240e31190416aa78fb1410321b6a7a0ee0e6434
+PODFILE CHECKSUM: bf92b8b40038caeb883f45748395c38ad669d11b
 
 COCOAPODS: 1.8.3

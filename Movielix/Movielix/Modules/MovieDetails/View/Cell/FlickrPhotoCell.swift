@@ -19,9 +19,9 @@ class FlickrPhotoCell: UICollectionViewCell {
 
     func configure(photo: FlickrPhoto) {
         let options = ImageLoadingOptions(
-            placeholder: UIImage(named: "foodPlaceHolder"),
+            placeholder: UIImage(named: "logo"),
             transition: .fadeIn(duration: 0.33),
-            failureImage: UIImage(named: "foodPlaceHolder"),
+            failureImage: UIImage(named: "logo"),
             contentModes: .init(success: .scaleAspectFill, failure: .scaleAspectFit, placeholder: .scaleAspectFit)
         )
         Nuke.loadImage(with: photo.imageUrl!, options: options, into: flickrImageView)

@@ -10,14 +10,27 @@ import UIKit
 
 class MovieSearchCoordinator: Coordinator {
     var navigationController: UINavigationController
+    var view: MovieSearchViewController?
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
     
+    deinit {
+        print("MovieSearchCoordinator deinit successfully...")
+    }
+    
     func start() {
-        let vc = MovieSearchViewController.instintiate()
-        vc.coordinator = self
-        navigationController.pushViewController(vc, animated: true)
+        view = MovieSearchViewController.instintiate()
+        view?.coordinator = self
+        let presenter = MovieSearchPresenter()
+        presenter.view = view
+        let interactor = MovieSearchInteractor()
+        interactor.presenter = presenter
+        view?.interactor = interactor
+        guard let view = view else {
+            return
+        }
+        navigationController.pushViewController(view, animated: true)
     }
 }

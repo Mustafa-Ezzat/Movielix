@@ -8,22 +8,28 @@
 
 import UIKit
 
-protocol MovieSearchViewProtocol {
+protocol MovieSearchViewProtocol: class {
     func display()
 }
 
 class MovieSearchViewController: UIViewController {
-    var searchController: UISearchController!
     @IBOutlet weak var tableView: UITableView!
+    var searchController: UISearchController!
     weak var coordinator: MovieSearchCoordinator?
+    var interactor: MovieSearchInteractorProtocol?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        interactor?.readMovies { _ in}
         title = "Search"
         showNavigation()
         customizeSearchBar()
         setupTableView()
+    }
+    
+    deinit {
+        print("MovieSearchViewController deinit successfully...")
     }
     
     func customizeSearchBar() {
@@ -39,6 +45,6 @@ class MovieSearchViewController: UIViewController {
 
 extension MovieSearchViewController: MovieSearchViewProtocol {
     func display() {
-        
+        print("Done ...")
     }
 }

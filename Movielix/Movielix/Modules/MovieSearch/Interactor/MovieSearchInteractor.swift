@@ -13,7 +13,10 @@ protocol MovieSearchInteractorProtocol {
 }
 
 class MovieSearchInteractor {
-    
+    var presenter: MovieSearchPresenterProtocol?
+    deinit {
+        print("MovieSearchInteractor deinit successfully...")
+    }
 }
 
 extension MovieSearchInteractor: MovieSearchInteractorProtocol {
@@ -23,9 +26,13 @@ extension MovieSearchInteractor: MovieSearchInteractorProtocol {
         }
         do {
            let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
-           let sut = MovieResponsable()
-           sut.map(data) { result in
-               completionHandler(result)
+           let movieResponsable = MovieResponsable()
+           movieResponsable.map(data) { result in
+                completionHandler(result)
+                guard let presenter = self.presenter else {
+                    return
+                }
+                presenter.present()
            }
         } catch {
             // handle error

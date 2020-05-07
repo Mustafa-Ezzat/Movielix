@@ -10,6 +10,7 @@ import UIKit
 
 class LaunchCoordinator: Coordinator {
     var navigationController: UINavigationController
+    var movieSearchCoordinator: MovieSearchCoordinator?
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -22,7 +23,7 @@ class LaunchCoordinator: Coordinator {
     }
     
     func startSearchMovie() {
-        let movieSearchCoordinator = MovieSearchCoordinator(navigationController: navigationController)
-        movieSearchCoordinator.start()
+        movieSearchCoordinator = MovieSearchCoordinator(navigationController: navigationController)
+        movieSearchCoordinator?.start()
     }
 }

@@ -10,17 +10,22 @@ import Foundation
 
 protocol MovieSearchInteractorProtocol {
     func readMovies(completionHandler: @escaping (Result<MovieResponse, Error>) -> Void)
+    func search(by keyword: String)
 }
 
 class MovieSearchInteractor {
     var presenter: MovieSearchPresenterProtocol?
     var reader: Reader?
     var categorizer: MovieCategorizer?
+    var searcher: MovieSearcher?
+    var list: [YearMives<Int>]?
     
     init() {
         // Single responsability one reason to change
         reader = JsonReader()
         categorizer = MovieCategorizer()
+        searcher = MovieSearcher()
+        list = [YearMives<Int>]()
     }
     
     deinit {
@@ -37,11 +42,21 @@ extension MovieSearchInteractor: MovieSearchInteractorProtocol {
             switch result {
             case .success(let response):
                 self.categorizer?.categorize(movies: response.movies) { list in
-                    presenter.present(list: list)
+                    self.list = list
                 }
+                presenter.present(list: response.movies)
             case .failure(let error):
                 print(error.localizedDescription)
             }
         }
+    }
+    
+    func search(by keyword: String){
+        guard let searcher = searcher, let list = list else {
+            self.presenter?.present(list: [YearMives<Int>]())
+            return
+        }
+        let result = searcher.query(list: list, keyword: keyword)
+        self.presenter?.present(list: result)
     }
 }

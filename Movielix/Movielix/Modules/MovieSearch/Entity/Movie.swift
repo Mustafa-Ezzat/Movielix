@@ -25,3 +25,15 @@ extension Movie: Comparable {
         return lhs.title == rhs.title && lhs.year == rhs.year
     }
 }
+
+protocol Searchable {
+    associatedtype Keyword: Equatable
+    func isExist(_ keyword: Keyword) -> Bool
+}
+
+extension Movie: Searchable {
+    typealias Keyword = String
+    func isExist(_ keyword: String) -> Bool {
+        return title.lowercased().contains(keyword.lowercased())
+    }
+}

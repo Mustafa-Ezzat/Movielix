@@ -13,6 +13,11 @@ protocol MovieSearchViewProtocol: class {
     func display(list: [Movie])
 }
 
+enum DataSourceMode {
+    case AnyOrder
+    case Search
+}
+
 class MovieSearchViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var searchController: UISearchController!
@@ -47,40 +52,53 @@ class MovieSearchViewController: UIViewController {
     }
     
     func setupTableView() {
-        anyOrderdataSource = AnyOrderDataSource(movies: [])
-        searchDataSource = MovieSearchDataSource(movies: [])
+        anyOrderdataSource = AnyOrderDataSource(list: [])
+        searchDataSource = MovieSearchDataSource(list: [])
         tableView.tableHeaderView = searchController.searchBar
         tableView.register(cell: MovieSearchCell.self)
         tableView.dataSource = anyOrderdataSource
         tableView.delegate = anyOrderdataSource
+    }
+    
+    func reloadData(dataSourceMode: DataSourceMode) {
+        switch dataSourceMode {
+        case .AnyOrder:
+            guard let list = movies else {
+                return
+            }
+            anyOrderdataSource?.list = list
+            tableView.dataSource = anyOrderdataSource
+            tableView.delegate = anyOrderdataSource
+        case .Search:
+            guard let list = yearMives else {
+                return
+            }
+            searchDataSource?.list = list
+            tableView.dataSource = searchDataSource
+            tableView.delegate = searchDataSource
+        }
+        DispatchQueue.main.async { [unowned self] in
+            self.tableView.reloadData()
+        }
     }
 }
 
 extension MovieSearchViewController: MovieSearchViewProtocol {
     func display(list: [Movie]) {
         movies = list
-        anyOrderdataSource?.movies = list
-        tableView.dataSource = anyOrderdataSource
-        tableView.delegate = anyOrderdataSource
-        tableView.reloadData()
+        reloadData(dataSourceMode: .AnyOrder)
     }
     
     func display(list: [YearMives<Int>]) {
         yearMives = list
-        searchDataSource?.movies = list
-        tableView.dataSource = searchDataSource
-        tableView.delegate = searchDataSource
-        tableView.reloadData()
+        reloadData(dataSourceMode: .Search)
     }
 }
 
 extension MovieSearchViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         guard let keyword = searchController.searchBar.text, !keyword.isEmpty else {
-            anyOrderdataSource?.movies = movies!
-            tableView.dataSource = anyOrderdataSource
-            tableView.delegate = anyOrderdataSource
-            tableView.reloadData()
+            reloadData(dataSourceMode: .AnyOrder)
             return
         }
         interactor?.search(by: keyword)

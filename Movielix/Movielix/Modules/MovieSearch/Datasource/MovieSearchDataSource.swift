@@ -8,32 +8,42 @@
 
 import UIKit
 
-class MovieSearchDataSource: NSObject {
-    var movies: [YearMives<Int>]
+protocol DataSource {
+    associatedtype T
+    var list: [T] {get set}
+}
+
+class MovieSearchDataSource: NSObject, DataSource {
+    typealias T = YearMives<Int>
+    var list: [YearMives<Int>]
     
-    init(movies: [YearMives<Int>]) {
-        self.movies = movies
+    init(list: [YearMives<Int>]) {
+        self.list = list
     }
 }
 
 extension MovieSearchDataSource: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return movies.count
+        return list.count
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return movies[section].movies.count
+        return list[section].movies.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: MovieSearchCell = tableView.dequeueCell(for: indexPath)
-        if movies.count > indexPath.row {
-            let movie = movies[indexPath.section].movies[indexPath.row]
+        if list.count > indexPath.row {
+            let movie = list[indexPath.section].movies[indexPath.row]
             cell.configure(movie)
         }
         return cell
     }
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "\(movies[section].year)"
+        return "\(list[section].year)"
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 44
     }
     
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int){
@@ -43,6 +53,7 @@ extension MovieSearchDataSource: UITableViewDataSource {
         }
         textLabel.textAlignment = .center
         textLabel.textColor = .white
+        textLabel.font = UIFont(fontStyle: .SFProDisplayBold, size: 22)
     }
 
 }

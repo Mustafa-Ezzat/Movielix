@@ -7,11 +7,13 @@
 //
 import UIKit
 
-class AnyOrderDataSource: NSObject {
-    var movies: [Movie]
+class AnyOrderDataSource: NSObject, DataSource {
+    typealias T = Movie
     
-    init(movies: [Movie]) {
-        self.movies = movies
+    var list: [Movie]
+    
+    init(list: [Movie]) {
+        self.list = list
     }
 }
 
@@ -20,13 +22,13 @@ extension AnyOrderDataSource: UITableViewDataSource {
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return movies.count
+        return list.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: MovieSearchCell = tableView.dequeueCell(for: indexPath)
-        if movies.count > indexPath.row {
-            let movie = movies[indexPath.row]
+        if list.count > indexPath.row {
+            let movie = list[indexPath.row]
             cell.configure(movie)
         }
         return cell

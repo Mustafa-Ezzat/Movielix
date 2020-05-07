@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MovieSearchViewController" customModule="Movielix" customModuleProvider="target">
             <connections>
+                <outlet property="animationView" destination="Zfv-ZL-Rl4" id="RzA-nC-77o"/>
                 <outlet property="tableView" destination="rdD-Hf-SHa" id="Ukm-e0-YXW"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -23,11 +24,19 @@
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                 </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zfv-ZL-Rl4" customClass="AnimationView" customModule="Lottie">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="rdD-Hf-SHa" secondAttribute="bottom" id="FcY-ir-XsV"/>
                 <constraint firstItem="rdD-Hf-SHa" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="TvK-WE-4gt"/>
+                <constraint firstItem="Zfv-ZL-Rl4" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="UWq-L3-24c"/>
+                <constraint firstItem="Zfv-ZL-Rl4" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Zzp-E9-F6p"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Zfv-ZL-Rl4" secondAttribute="trailing" id="kFm-D6-rOf"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Zfv-ZL-Rl4" secondAttribute="bottom" id="krU-wg-XNO"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="rdD-Hf-SHa" secondAttribute="trailing" id="mC0-Ai-WW5"/>
                 <constraint firstItem="rdD-Hf-SHa" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="zAY-cs-H12"/>
             </constraints>

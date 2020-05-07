@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Lottie
 
 protocol MovieSearchViewProtocol: class {
     func display(list: [YearMives<Int>])
@@ -20,6 +21,7 @@ enum DataSourceMode {
 
 class MovieSearchViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var animationView: AnimationView!
     var searchController: UISearchController!
     weak var coordinator: MovieSearchCoordinator?
     var interactor: MovieSearchInteractorProtocol?
@@ -36,11 +38,20 @@ class MovieSearchViewController: UIViewController {
         showNavigation()
         customizeSearchBar()
         setupTableView()
-        interactor?.readMovies { _ in}
+        startAnimation()
     }
     
     deinit {
         print("MovieSearchViewController deinit successfully...")
+    }
+    
+    func startAnimation() {
+        let animation = Animation.named("stretch")
+        animationView.contentMode = .scaleAspectFit
+        animationView.animation = animation
+        animationView.play { [unowned self]  _ in
+            self.interactor?.readMovies { _ in}
+        }
     }
     
     func customizeSearchBar() {
@@ -53,7 +64,9 @@ class MovieSearchViewController: UIViewController {
     
     func setupTableView() {
         anyOrderdataSource = AnyOrderDataSource(list: [])
+        anyOrderdataSource?.view = self
         searchDataSource = MovieSearchDataSource(list: [])
+        searchDataSource?.view = self
         tableView.tableHeaderView = searchController.searchBar
         tableView.register(cell: MovieSearchCell.self)
         tableView.dataSource = anyOrderdataSource
@@ -61,23 +74,24 @@ class MovieSearchViewController: UIViewController {
     }
     
     func reloadData(dataSourceMode: DataSourceMode) {
+    DispatchQueue.main.async { [unowned self] in
         switch dataSourceMode {
         case .AnyOrder:
-            guard let list = movies else {
+            guard let list = self.movies else {
                 return
             }
-            anyOrderdataSource?.list = list
-            tableView.dataSource = anyOrderdataSource
-            tableView.delegate = anyOrderdataSource
+            self.anyOrderdataSource?.list = list
+            self.tableView.dataSource = self.anyOrderdataSource
+            self.tableView.delegate = self.anyOrderdataSource
+            self.animationView.isHidden = true
         case .Search:
-            guard let list = yearMives else {
+            guard let list = self.yearMives else {
                 return
             }
-            searchDataSource?.list = list
-            tableView.dataSource = searchDataSource
-            tableView.delegate = searchDataSource
+            self.searchDataSource?.list = list
+            self.tableView.dataSource = self.searchDataSource
+            self.tableView.delegate = self.searchDataSource
         }
-        DispatchQueue.main.async { [unowned self] in
             self.tableView.reloadData()
         }
     }
@@ -88,7 +102,6 @@ extension MovieSearchViewController: MovieSearchViewProtocol {
         movies = list
         reloadData(dataSourceMode: .AnyOrder)
     }
-    
     func display(list: [YearMives<Int>]) {
         yearMives = list
         reloadData(dataSourceMode: .Search)

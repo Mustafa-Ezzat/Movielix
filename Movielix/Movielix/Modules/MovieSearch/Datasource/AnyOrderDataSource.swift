@@ -9,9 +9,9 @@ import UIKit
 
 class AnyOrderDataSource: NSObject, DataSource {
     typealias T = Movie
-    
     var list: [Movie]
-    
+    weak var view: MovieSearchViewController?
+
     init(list: [Movie]) {
         self.list = list
     }
@@ -37,7 +37,7 @@ extension AnyOrderDataSource: UITableViewDataSource {
 
 extension AnyOrderDataSource: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        view?.coordinator?.starthMovieDetails()
     }
 }
 

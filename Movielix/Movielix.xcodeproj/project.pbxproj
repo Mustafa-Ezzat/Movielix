@@ -52,6 +52,7 @@
 		D69355862463D8CB00B90B0F /* SF-Pro-Display-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = D69355822463D8CB00B90B0F /* SF-Pro-Display-Semibold.otf */; };
 		D69355892463D94900B90B0F /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69355882463D94900B90B0F /* RoundedView.swift */; };
 		D693558B2463DC4800B90B0F /* Font+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D693558A2463DC4800B90B0F /* Font+Extension.swift */; };
+		D693558D2463FAB500B90B0F /* stretch.json in Resources */ = {isa = PBXBuildFile; fileRef = D693558C2463FAB500B90B0F /* stretch.json */; };
 		D69481A12462FAE000CE18D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69481A02462FAE000CE18D5 /* AppDelegate.swift */; };
 		D69481AA2462FAE100CE18D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D69481A92462FAE100CE18D5 /* Assets.xcassets */; };
 		D69481AD2462FAE100CE18D5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D69481AB2462FAE100CE18D5 /* LaunchScreen.storyboard */; };
@@ -127,6 +128,7 @@
 		D69355822463D8CB00B90B0F /* SF-Pro-Display-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Semibold.otf"; sourceTree = "<group>"; };
 		D69355882463D94900B90B0F /* RoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
 		D693558A2463DC4800B90B0F /* Font+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Font+Extension.swift"; sourceTree = "<group>"; };
+		D693558C2463FAB500B90B0F /* stretch.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = stretch.json; sourceTree = "<group>"; };
 		D694819D2462FAE000CE18D5 /* Movielix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Movielix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D69481A02462FAE000CE18D5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D69481A92462FAE100CE18D5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -458,6 +460,7 @@
 				D69481A02462FAE000CE18D5 /* AppDelegate.swift */,
 				D69481A92462FAE100CE18D5 /* Assets.xcassets */,
 				D69481AB2462FAE100CE18D5 /* LaunchScreen.storyboard */,
+				D693558C2463FAB500B90B0F /* stretch.json */,
 				D693550E2463180D00B90B0F /* stay-home-stay-safe.json */,
 				D69481AE2462FAE100CE18D5 /* Info.plist */,
 			);
@@ -605,6 +608,7 @@
 				D69355862463D8CB00B90B0F /* SF-Pro-Display-Semibold.otf in Resources */,
 				D693553F2463548600B90B0F /* movies.json in Resources */,
 				D69481AD2462FAE100CE18D5 /* LaunchScreen.storyboard in Resources */,
+				D693558D2463FAB500B90B0F /* stretch.json in Resources */,
 				D693557B2463C58A00B90B0F /* MovieSearchCell.xib in Resources */,
 				D69481AA2462FAE100CE18D5 /* Assets.xcassets in Resources */,
 				D693554D2463723C00B90B0F /* LaunchViewController.xib in Resources */,

@@ -16,6 +16,7 @@ protocol DataSource {
 class MovieSearchDataSource: NSObject, DataSource {
     typealias T = YearMives<Int>
     var list: [YearMives<Int>]
+    weak var view: MovieSearchViewController?
     
     init(list: [YearMives<Int>]) {
         self.list = list
@@ -60,7 +61,9 @@ extension MovieSearchDataSource: UITableViewDataSource {
 
 extension MovieSearchDataSource: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        view?.searchController.dismiss(animated: true) { [unowned self] in
+            self.view?.coordinator?.starthMovieDetails()
+        }
     }
 }
 

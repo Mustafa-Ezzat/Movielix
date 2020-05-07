@@ -35,28 +35,35 @@ class MovieSearchInteractor {
 
 extension MovieSearchInteractor: MovieSearchInteractorProtocol {
     func readMovies(completionHandler: @escaping (Result<MovieResponse, Error>) -> Void) {
-        reader?.read() { [weak self] result in
+        DispatchQueue.global(qos: .utility).async { [weak self] in
             guard let self = self, let presenter = self.presenter else {
                 return
             }
-            switch result {
-            case .success(let response):
-                self.categorizer?.categorize(movies: response.movies) { list in
-                    self.list = list
+            self.reader?.read() {  result in
+                switch result {
+                case .success(let response):
+                    self.categorizer?.categorize(movies: response.movies) { list in
+                        self.list = list
+                    }
+                    presenter.present(list: response.movies)
+                case .failure(let error):
+                    print(error.localizedDescription)
                 }
-                presenter.present(list: response.movies)
-            case .failure(let error):
-                print(error.localizedDescription)
             }
         }
     }
     
     func search(by keyword: String){
-        guard let searcher = searcher, let list = list else {
-            self.presenter?.present(list: [YearMives<Int>]())
-            return
+        DispatchQueue.global(qos: .utility).async { [weak self] in
+            guard let self = self, let presenter = self.presenter else {
+                return
+            }
+            guard let searcher = self.searcher, let list = self.list else {
+                presenter.present(list: [YearMives<Int>]())
+                return
+            }
+            let result = searcher.query(list: list, keyword: keyword)
+            presenter.present(list: result)
         }
-        let result = searcher.query(list: list, keyword: keyword)
-        self.presenter?.present(list: result)
     }
 }

@@ -39,6 +39,8 @@
 		D693555F246387D200B90B0F /* MovieSearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D693555E246387D200B90B0F /* MovieSearchPresenter.swift */; };
 		D693556324639B2900B90B0F /* YearMives.swift in Sources */ = {isa = PBXBuildFile; fileRef = D693556224639B2900B90B0F /* YearMives.swift */; };
 		D69355662463A9E600B90B0F /* JsonReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69355652463A9E600B90B0F /* JsonReader.swift */; };
+		D69355682463AC3900B90B0F /* MovieSorter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69355672463AC3900B90B0F /* MovieSorter.swift */; };
+		D693556A2463AE6900B90B0F /* MovieCatogrizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69355692463AE6900B90B0F /* MovieCatogrizer.swift */; };
 		D69481A12462FAE000CE18D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69481A02462FAE000CE18D5 /* AppDelegate.swift */; };
 		D69481AA2462FAE100CE18D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D69481A92462FAE100CE18D5 /* Assets.xcassets */; };
 		D69481AD2462FAE100CE18D5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D69481AB2462FAE100CE18D5 /* LaunchScreen.storyboard */; };
@@ -101,6 +103,8 @@
 		D693555E246387D200B90B0F /* MovieSearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSearchPresenter.swift; sourceTree = "<group>"; };
 		D693556224639B2900B90B0F /* YearMives.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearMives.swift; sourceTree = "<group>"; };
 		D69355652463A9E600B90B0F /* JsonReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonReader.swift; sourceTree = "<group>"; };
+		D69355672463AC3900B90B0F /* MovieSorter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSorter.swift; sourceTree = "<group>"; };
+		D69355692463AE6900B90B0F /* MovieCatogrizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCatogrizer.swift; sourceTree = "<group>"; };
 		D694819D2462FAE000CE18D5 /* Movielix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Movielix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D69481A02462FAE000CE18D5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D69481A92462FAE100CE18D5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -159,9 +163,9 @@
 		D693551024631D4D00B90B0F /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				D693551D2463300100B90B0F /* MovieSearch */,
 				D6935554246382A200B90B0F /* MovieDetails */,
 				D69355462463704400B90B0F /* Launch */,
-				D693551D2463300100B90B0F /* MovieSearch */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -351,6 +355,8 @@
 			isa = PBXGroup;
 			children = (
 				D69355652463A9E600B90B0F /* JsonReader.swift */,
+				D69355672463AC3900B90B0F /* MovieSorter.swift */,
+				D69355692463AE6900B90B0F /* MovieCatogrizer.swift */,
 			);
 			path = Worker;
 			sourceTree = "<group>";
@@ -381,8 +387,8 @@
 			isa = PBXGroup;
 			children = (
 				D693553D2463547100B90B0F /* Resources */,
-				D693552A24634CB300B90B0F /* Generic */,
 				D69355112463243D00B90B0F /* Extensions */,
+				D693552A24634CB300B90B0F /* Generic */,
 				D693551024631D4D00B90B0F /* Modules */,
 				D69481A02462FAE000CE18D5 /* AppDelegate.swift */,
 				D69481A92462FAE100CE18D5 /* Assets.xcassets */,
@@ -668,9 +674,11 @@
 				D693555C246382FB00B90B0F /* MovieDetailsCoordinator.swift in Sources */,
 				D6935559246382E000B90B0F /* MovieDetailsViewController.swift in Sources */,
 				D69355502463764500B90B0F /* LaunchCoordinator.swift in Sources */,
+				D693556A2463AE6900B90B0F /* MovieCatogrizer.swift in Sources */,
 				D693555324637A9700B90B0F /* MovieSearchCoordinator.swift in Sources */,
 				D69355132463291500B90B0F /* ReusableView.swift in Sources */,
 				D69355162463299200B90B0F /* UITableViewCell+Extension.swift in Sources */,
+				D69355682463AC3900B90B0F /* MovieSorter.swift in Sources */,
 				D693552F24634D0200B90B0F /* Responsable.swift in Sources */,
 				D693551824632A1100B90B0F /* UITableView+Extension.swift in Sources */,
 				D69355242463374D00B90B0F /* NavigationController.swift in Sources */,

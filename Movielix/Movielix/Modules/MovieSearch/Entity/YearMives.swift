@@ -8,9 +8,9 @@
 
 import Foundation
 
-struct YearMives {
-    let year: Int
-    let movies: [Movie]
+struct YearMives<T> where T: Hashable & Comparable {
+    let year: T
+    let movies: [Movie]    
 }
 
 extension YearMives: Comparable {

@@ -15,19 +15,16 @@ protocol MovieSearchInteractorProtocol {
 class MovieSearchInteractor {
     var presenter: MovieSearchPresenterProtocol?
     var reader: Reader?
+    var categorizer: MovieCategorizer?
     
     init() {
+        // Single responsability one reason to change
         reader = JsonReader()
+        categorizer = MovieCategorizer()
     }
     
     deinit {
         print("MovieSearchInteractor deinit successfully...")
-    }
-    func categorize(movies: [Movie], completion: @escaping ([YearMives]) -> Void) {
-        let sorted = movies.sorted(by: { $0 > $1 })
-        let categoryDictionary = Dictionary(grouping: sorted) { $0.year }
-        let movieList = categoryDictionary.map{YearMives(year: $0.key, movies: $0.value) }.sorted(by: { $0 > $1 })
-        completion(movieList)
     }
 }
 
@@ -39,7 +36,7 @@ extension MovieSearchInteractor: MovieSearchInteractorProtocol {
             }
             switch result {
             case .success(let response):
-                self.categorize(movies: response.movies) { list in
+                self.categorizer?.categorize(movies: response.movies) { list in
                     presenter.present(list: list)
                 }
             case .failure(let error):

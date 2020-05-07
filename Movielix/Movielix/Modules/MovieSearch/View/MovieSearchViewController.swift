@@ -9,7 +9,7 @@
 import UIKit
 
 protocol MovieSearchViewProtocol: class {
-    func display()
+    func display(list: [YearMives])
 }
 
 class MovieSearchViewController: UIViewController {
@@ -44,7 +44,7 @@ class MovieSearchViewController: UIViewController {
 }
 
 extension MovieSearchViewController: MovieSearchViewProtocol {
-    func display() {
-        print("Done ...")
+    func display(list: [YearMives]) {
+        print(list)
     }
 }

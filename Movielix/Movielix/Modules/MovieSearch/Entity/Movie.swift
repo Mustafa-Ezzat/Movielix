@@ -15,3 +15,13 @@ struct Movie: Codable {
     let genres: [String]
     let rating: Int
 }
+
+extension Movie: Comparable {
+    static func < (lhs: Movie, rhs: Movie) -> Bool {
+        lhs.rating < rhs.rating
+    }
+    
+    static func == (lhs: Movie, rhs: Movie) -> Bool {
+        return lhs.title == rhs.title && lhs.year == rhs.year
+    }
+}

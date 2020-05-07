@@ -9,7 +9,7 @@
 import Foundation
 
 protocol MovieSearchPresenterProtocol {
-    func present()
+    func present(list: [YearMives])
 }
 
 class MovieSearchPresenter {
@@ -21,7 +21,7 @@ class MovieSearchPresenter {
 }
 
 extension MovieSearchPresenter: MovieSearchPresenterProtocol {
-    func present() {
-        view?.display()
+    func present(list: [YearMives]) {
+        view?.display(list: list)
     }
 }

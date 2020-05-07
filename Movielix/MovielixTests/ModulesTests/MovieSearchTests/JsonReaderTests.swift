@@ -8,13 +8,13 @@
 import XCTest
 @testable import Movielix
 
-class MovieSearchInteractorTests: XCTestCase {
-    var sut: MovieSearchInteractorProtocol!
+class JsonReaderTests: XCTestCase {
+    var sut: Reader!
     
     override func setUp() {
         super.setUp()
         // should init after super.setup()
-        sut = MovieSearchInteractor()
+        sut = JsonReader()
     }
 
     override func tearDown() {
@@ -24,7 +24,7 @@ class MovieSearchInteractorTests: XCTestCase {
     }
 
     func test_MovieSearchInteractor_ReadMoviesFromJson() {
-        sut.readMovies() { result in
+        sut.read() { result in
             switch(result) {
             case .success(let response):
                 XCTAssertGreaterThanOrEqual(response.movies.count, 0)

@@ -72,6 +72,7 @@
 		D6C8493B2465BC84002A220A /* ConstantTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C8493A2465BC84002A220A /* ConstantTests.swift */; };
 		D6C8493E2465BCF1002A220A /* MovieSorterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C8493D2465BCF1002A220A /* MovieSorterTests.swift */; };
 		D6C849402465C817002A220A /* CategorizerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C8493F2465C817002A220A /* CategorizerTests.swift */; };
+		D6C849422465CF5D002A220A /* MovieSearcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C849412465CF5D002A220A /* MovieSearcherTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -168,6 +169,7 @@
 		D6C8493A2465BC84002A220A /* ConstantTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantTests.swift; sourceTree = "<group>"; };
 		D6C8493D2465BCF1002A220A /* MovieSorterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSorterTests.swift; sourceTree = "<group>"; };
 		D6C8493F2465C817002A220A /* CategorizerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorizerTests.swift; sourceTree = "<group>"; };
+		D6C849412465CF5D002A220A /* MovieSearcherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSearcherTests.swift; sourceTree = "<group>"; };
 		F9630F13CF3940A9C6195E33 /* Pods_MovielixTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MovielixTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -306,6 +308,7 @@
 				D693553624634FEF00B90B0F /* JsonReaderTests.swift */,
 				D6C8493D2465BCF1002A220A /* MovieSorterTests.swift */,
 				D6C8493F2465C817002A220A /* CategorizerTests.swift */,
+				D6C849412465CF5D002A220A /* MovieSearcherTests.swift */,
 			);
 			path = MovieSearchTests;
 			sourceTree = "<group>";
@@ -906,6 +909,7 @@
 				D6C849402465C817002A220A /* CategorizerTests.swift in Sources */,
 				D6C8493E2465BCF1002A220A /* MovieSorterTests.swift in Sources */,
 				D693553724634FEF00B90B0F /* JsonReaderTests.swift in Sources */,
+				D6C849422465CF5D002A220A /* MovieSearcherTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

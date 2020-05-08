@@ -29,27 +29,39 @@
                         <rect key="frame" x="8" y="8" width="398" height="104"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d23-gO-abM">
-                                <rect key="frame" x="80" y="8" width="310" height="24"/>
-                                <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="20"/>
+                                <rect key="frame" x="80" y="8" width="310" height="21.5"/>
+                                <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nc5-cq-Pp8" customClass="CosmosView" customModule="Cosmos">
-                                <rect key="frame" x="80" y="76" width="120" height="20"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <rect key="frame" x="80" y="65" width="120" height="20"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="WH9-ix-3Oc"/>
                                     <constraint firstAttribute="height" constant="20" id="cJ9-L2-2jb"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="filledColor">
+                                        <color key="value" red="0.2901960784" green="0.078431372550000003" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="filledBorderColor">
+                                        <color key="value" red="0.2901960784" green="0.078431372550000003" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="emptyBorderColor">
+                                        <color key="value" red="0.2901960784" green="0.078431372550000003" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(0)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cHI-Iz-oRd">
-                                <rect key="frame" x="208" y="75.5" width="23" height="21"/>
+                                <rect key="frame" x="208" y="64.5" width="23" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="TgX-gG-Sia">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TgX-gG-Sia">
                                 <rect key="frame" x="8" y="20" width="64" height="64"/>
+                                <color key="backgroundColor" red="0.2901960784" green="0.078431372550000003" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="WXb-8K-oqE"/>
                                     <constraint firstAttribute="width" constant="64" id="kdH-Yo-dGE"/>
@@ -60,7 +72,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <variation key="heightClass=regular-widthClass=compact">
-                                    <nil key="backgroundColor"/>
+                                    <color key="backgroundColor" red="0.2901960784" green="0.078431372550000003" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
                                 </variation>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rightArrow" translatesAutoresizingMaskIntoConstraints="NO" id="0Xa-xX-lia">
@@ -71,7 +83,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pYB-Nj-e1y">
-                                <rect key="frame" x="80" y="40" width="38" height="19.5"/>
+                                <rect key="frame" x="80" y="37.5" width="38" height="19.5"/>
                                 <fontDescription key="fontDescription" name="SFProDisplay-Medium" family="SF Pro Display" pointSize="16"/>
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -88,8 +100,8 @@
                             <constraint firstItem="0Xa-xX-lia" firstAttribute="centerY" secondItem="DpT-fJ-MD8" secondAttribute="centerY" id="C7i-Ph-wvl"/>
                             <constraint firstItem="TgX-gG-Sia" firstAttribute="centerY" secondItem="DpT-fJ-MD8" secondAttribute="centerY" id="P7X-Qx-qCQ"/>
                             <constraint firstItem="nc5-cq-Pp8" firstAttribute="leading" secondItem="TgX-gG-Sia" secondAttribute="trailing" constant="8" id="UH3-sr-wlL"/>
-                            <constraint firstAttribute="bottom" secondItem="nc5-cq-Pp8" secondAttribute="bottom" constant="8" id="e25-tG-AWa"/>
                             <constraint firstItem="d23-gO-abM" firstAttribute="leading" secondItem="TgX-gG-Sia" secondAttribute="trailing" constant="8" id="jBA-AH-LvT"/>
+                            <constraint firstItem="nc5-cq-Pp8" firstAttribute="top" secondItem="pYB-Nj-e1y" secondAttribute="bottom" constant="8" id="lvA-tJ-96r"/>
                             <constraint firstAttribute="trailing" secondItem="d23-gO-abM" secondAttribute="trailing" constant="8" id="mFr-0V-m9t"/>
                             <constraint firstItem="pYB-Nj-e1y" firstAttribute="leading" secondItem="TgX-gG-Sia" secondAttribute="trailing" constant="8" id="rgA-rZ-wbf"/>
                         </constraints>
@@ -113,7 +125,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="logo" width="256" height="256"/>
         <image name="rightArrow" width="36" height="36"/>
     </resources>
 </document>

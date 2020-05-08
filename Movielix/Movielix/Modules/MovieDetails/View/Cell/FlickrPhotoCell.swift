@@ -24,6 +24,9 @@ class FlickrPhotoCell: UICollectionViewCell {
             failureImage: UIImage(named: "logo"),
             contentModes: .init(success: .scaleAspectFill, failure: .scaleAspectFit, placeholder: .scaleAspectFit)
         )
-        Nuke.loadImage(with: photo.imageUrl!, options: options, into: flickrImageView)
+        guard let url = photo.imageUrl else {
+            return
+        }
+        Nuke.loadImage(with: url, options: options, into: flickrImageView)
     }
 }

@@ -67,6 +67,7 @@
 		D6C8492D2464C28D002A220A /* FlickrPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C8492B2464C28D002A220A /* FlickrPhotoCell.swift */; };
 		D6C8492E2464C28D002A220A /* FlickrPhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6C8492C2464C28D002A220A /* FlickrPhotoCell.xib */; };
 		D6C849302464C465002A220A /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C8492F2464C465002A220A /* UICollectionView+Extension.swift */; };
+		D6C849322464D9B8002A220A /* smiley.json in Resources */ = {isa = PBXBuildFile; fileRef = D6C849312464D9B8002A220A /* smiley.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -158,6 +159,7 @@
 		D6C8492B2464C28D002A220A /* FlickrPhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrPhotoCell.swift; sourceTree = "<group>"; };
 		D6C8492C2464C28D002A220A /* FlickrPhotoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FlickrPhotoCell.xib; sourceTree = "<group>"; };
 		D6C8492F2464C465002A220A /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
+		D6C849312464D9B8002A220A /* smiley.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = smiley.json; sourceTree = "<group>"; };
 		F9630F13CF3940A9C6195E33 /* Pods_MovielixTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MovielixTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -494,6 +496,7 @@
 				D69481A02462FAE000CE18D5 /* AppDelegate.swift */,
 				D69481A92462FAE100CE18D5 /* Assets.xcassets */,
 				D69481AB2462FAE100CE18D5 /* LaunchScreen.storyboard */,
+				D6C849312464D9B8002A220A /* smiley.json */,
 				D693558C2463FAB500B90B0F /* stretch.json */,
 				D693550E2463180D00B90B0F /* stay-home-stay-safe.json */,
 				D69481AE2462FAE100CE18D5 /* Info.plist */,
@@ -690,6 +693,7 @@
 			files = (
 				D69355862463D8CB00B90B0F /* SF-Pro-Display-Semibold.otf in Resources */,
 				D693553F2463548600B90B0F /* movies.json in Resources */,
+				D6C849322464D9B8002A220A /* smiley.json in Resources */,
 				D69481AD2462FAE100CE18D5 /* LaunchScreen.storyboard in Resources */,
 				D693558D2463FAB500B90B0F /* stretch.json in Resources */,
 				D693557B2463C58A00B90B0F /* MovieSearchCell.xib in Resources */,

@@ -69,10 +69,10 @@ class MovieSearchViewController: UIViewController {
     }
     
     func startAnimation() {
-        let animation = Animation.named("stretch")
+        let animation = Animation.named("smiley")
         animationView.contentMode = .scaleAspectFit
         animationView.animation = animation
-        animationView.play { [unowned self]  _ in
+        animationView.play { [unowned self] _ in
             self.interactor?.readMovies { _ in}
         }
     }

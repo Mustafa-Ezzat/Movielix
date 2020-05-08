@@ -8,6 +8,7 @@
 
 import UIKit
 import Cosmos
+import Lottie
 
 protocol MovieDetailsViewProtocol: class {
     func display(photos: FlickerContent)
@@ -18,8 +19,10 @@ class MovieDetailsViewController: UIViewController {
     @IBOutlet weak var ratingView: CosmosView!
     @IBOutlet weak var genresLabel: UILabel!
     @IBOutlet weak var castLabel: UILabel!
+    @IBOutlet weak var imageErrorLabel: UILabel!
     @IBOutlet weak var photosCollectionView: UICollectionView!
     @IBOutlet weak var photosCollectionViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var animationView: AnimationView!
     weak var coordinator: MovieDetailsCoordinator?
     var movie: Movie?
     var interactor: MovieDetailsInteractorProtocol?
@@ -29,6 +32,7 @@ class MovieDetailsViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         handleOutlets()
+        startAnimation()
     }
     
     func handleOutlets() {
@@ -46,6 +50,16 @@ class MovieDetailsViewController: UIViewController {
         genresLabel.text = movie.genres.joined(separator: "\n")
         castLabel.text = movie.cast.joined(separator: "\n")
     }
+    
+    func startAnimation() {
+        
+           let animation = Animation.named("stretch")
+           animationView.contentMode = .scaleAspectFit
+           animationView.animation = animation
+           animationView.loopMode = .loop
+           animationView.play { _ in
+           }
+    }
 }
 
 extension MovieDetailsViewController: MovieDetailsViewProtocol {
@@ -53,6 +67,12 @@ extension MovieDetailsViewController: MovieDetailsViewProtocol {
         datasource.list = photos.photos.photo
         DispatchQueue.main.async { [weak self] in
             guard let self = self else {
+                return
+            }
+            self.animationView.stop()
+            self.animationView.isHidden = true
+            guard !photos.photos.photo.isEmpty else {
+                self.imageErrorLabel.isHidden = false
                 return
             }
             self.photosCollectionView.reloadData()

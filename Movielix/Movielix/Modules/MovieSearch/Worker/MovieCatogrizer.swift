@@ -21,6 +21,7 @@ class MovieCategorizer: Categorizer {
     func categorize(movies: Set<Movie>, completion: @escaping ([YearMives<Int>]) -> Void) {
         let sorter = MovieSorter()
         let sorted = sorter.sort(list: Array(movies))
+        print("Sorted", sorted)
         let categoryDictionary = Dictionary(grouping: sorted) { $0.year }
         let movieList = categoryDictionary.map{YearMives(year: $0.key, movies: $0.value) }.sorted(by: { $0 > $1 })
         completion(movieList)

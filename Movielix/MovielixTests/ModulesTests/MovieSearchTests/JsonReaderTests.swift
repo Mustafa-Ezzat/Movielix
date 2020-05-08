@@ -23,7 +23,7 @@ class JsonReaderTests: XCTestCase {
         super.tearDown()
     }
 
-    func test_MovieSearchInteractor_ReadMoviesFromJson() {
+    func test_JsonReader_ReadMoviesFromJson() {
         sut.read() { result in
             switch(result) {
             case .success(let response):

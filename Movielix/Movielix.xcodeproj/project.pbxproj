@@ -71,6 +71,7 @@
 		D6C849362464E68A002A220A /* washinghands.json in Resources */ = {isa = PBXBuildFile; fileRef = D6C849352464E68A002A220A /* washinghands.json */; };
 		D6C8493B2465BC84002A220A /* ConstantTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C8493A2465BC84002A220A /* ConstantTests.swift */; };
 		D6C8493E2465BCF1002A220A /* MovieSorterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C8493D2465BCF1002A220A /* MovieSorterTests.swift */; };
+		D6C849402465C817002A220A /* CategorizerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C8493F2465C817002A220A /* CategorizerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -166,6 +167,7 @@
 		D6C849352464E68A002A220A /* washinghands.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = washinghands.json; sourceTree = "<group>"; };
 		D6C8493A2465BC84002A220A /* ConstantTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantTests.swift; sourceTree = "<group>"; };
 		D6C8493D2465BCF1002A220A /* MovieSorterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSorterTests.swift; sourceTree = "<group>"; };
+		D6C8493F2465C817002A220A /* CategorizerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorizerTests.swift; sourceTree = "<group>"; };
 		F9630F13CF3940A9C6195E33 /* Pods_MovielixTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MovielixTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -303,6 +305,7 @@
 			children = (
 				D693553624634FEF00B90B0F /* JsonReaderTests.swift */,
 				D6C8493D2465BCF1002A220A /* MovieSorterTests.swift */,
+				D6C8493F2465C817002A220A /* CategorizerTests.swift */,
 			);
 			path = MovieSearchTests;
 			sourceTree = "<group>";
@@ -900,6 +903,7 @@
 			files = (
 				D6C8493B2465BC84002A220A /* ConstantTests.swift in Sources */,
 				D69481B82462FAE100CE18D5 /* MovielixTests.swift in Sources */,
+				D6C849402465C817002A220A /* CategorizerTests.swift in Sources */,
 				D6C8493E2465BCF1002A220A /* MovieSorterTests.swift in Sources */,
 				D693553724634FEF00B90B0F /* JsonReaderTests.swift in Sources */,
 			);

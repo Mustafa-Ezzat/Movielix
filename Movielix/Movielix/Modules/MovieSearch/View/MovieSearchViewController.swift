@@ -69,7 +69,7 @@ class MovieSearchViewController: UIViewController {
     }
     
     func startAnimation() {
-        let animation = Animation.named("smiley")
+        let animation = Animation.named("mask")
         animationView.contentMode = .scaleAspectFit
         animationView.animation = animation
         animationView.play { [unowned self] _ in
@@ -94,6 +94,7 @@ class MovieSearchViewController: UIViewController {
         tableView.register(cell: MovieSearchCell.self)
         tableView.dataSource = anyOrderdataSource
         tableView.delegate = anyOrderdataSource
+        
     }
     
     func displayAnyOrder() {

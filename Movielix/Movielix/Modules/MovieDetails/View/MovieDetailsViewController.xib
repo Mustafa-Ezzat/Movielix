@@ -39,7 +39,7 @@
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UMS-Xj-xEJ">
                                     <rect key="frame" x="175" y="16" width="64" height="64"/>
-                                    <color key="backgroundColor" red="0.2901960784" green="0.078431372550000003" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="backgroundColor" red="0.2043383718" green="0.19367277620000001" blue="0.29805162549999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="64" id="Q9v-Zl-7k0"/>
                                         <constraint firstAttribute="width" constant="64" id="Wvk-Pu-uEr"/>
@@ -63,13 +63,13 @@
                                     </constraints>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="color" keyPath="filledColor">
-                                            <color key="value" red="0.2901960784" green="0.078431372550000003" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="value" red="0.2043383718" green="0.19367277620000001" blue="0.29805162549999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </userDefinedRuntimeAttribute>
                                         <userDefinedRuntimeAttribute type="color" keyPath="emptyBorderColor">
-                                            <color key="value" red="0.2901960784" green="0.078431372550000003" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="value" red="0.2043383718" green="0.19367277620000001" blue="0.29805162549999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </userDefinedRuntimeAttribute>
                                         <userDefinedRuntimeAttribute type="color" keyPath="filledBorderColor">
-                                            <color key="value" red="0.2901960784" green="0.078431372550000003" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="value" red="0.2043383718" green="0.19367277620000001" blue="0.29805162549999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </userDefinedRuntimeAttribute>
                                         <userDefinedRuntimeAttribute type="number" keyPath="rating">
                                             <real key="value" value="3"/>

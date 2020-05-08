@@ -9,7 +9,7 @@
 import UIKit
 
 extension UIColor {
-    static let primary = rgba(74, 20, 140)
+    static let primary = rgba(52, 49, 76)
 
     static func rgba(_ red: CGFloat, _ green: CGFloat, _ blue: CGFloat, _ alpha: CGFloat = 1) -> UIColor {
         return UIColor(red: red / 255, green: green / 255, blue: blue / 255, alpha: alpha)

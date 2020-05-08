@@ -15,10 +15,8 @@ class NavigationController: UINavigationController {
     }
     
     private func configure() {
-        navigationBar.barTintColor = .primary
-        navigationBar.backgroundColor = .primary
-        navigationBar.tintColor = .white
-        let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont(fontStyle: .SFProDisplayBold, size: 24)]
+        navigationBar.tintColor = .primary
+        let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.primary, NSAttributedString.Key.font: UIFont(fontStyle: .SFProDisplayBold, size: 24)]
         navigationBar.titleTextAttributes = textAttributes as [NSAttributedString.Key : Any]
     }
     

@@ -64,6 +64,9 @@ extension MovieSearchDataSource: UITableViewDataSource {
         textLabel.font = UIFont(fontStyle: .SFProDisplayBold, size: 22)
     }
 
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
 }
 
 extension MovieSearchDataSource: UITableViewDelegate {

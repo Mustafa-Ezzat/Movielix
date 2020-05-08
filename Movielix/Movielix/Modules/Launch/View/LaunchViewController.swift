@@ -25,9 +25,10 @@ class LaunchViewController: UIViewController {
     }
     
     func startAnimation() {
-        let animation = Animation.named("stay-home-stay-safe")
+        let animation = Animation.named("washinghands")
         animationView.contentMode = .scaleAspectFit
         animationView.animation = animation
+        animationView.loopMode = .repeat(3)
         animationView.play { [weak self] _ in
             // use self instead of weakSelf based on airbnb guideline
             guard let self = self else {

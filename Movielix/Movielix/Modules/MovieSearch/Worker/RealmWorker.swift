@@ -12,11 +12,12 @@ import Unrealm
 
 protocol RealmWorkerProtocol {
     var databaseURL: String { get }
-    func find<T: Realmable>(object: T.Type) -> Unrealm.Results<T>
-    func save<T: Realmable>(_ newElement: T)
-    func save<T: Realmable>(contentsOf sequence: [T])
+    func fetch<T: Realmable>(object: T.Type) -> Unrealm.Results<T>
+    func save<T: Realmable>(_ newElement: T, completion: @escaping (Bool) -> Void)
+    func save<T: Realmable>(contentsOf sequence: [T], completion: @escaping (Bool) -> Void)
     func delete<T: Realmable>(object: T.Type)
     func delete<T: Realmable>(object: T.Type, where condition: String)
+    func clear()
     func beginUpdates<T: Realmable>(for type: T.Type, updateClosure: () -> (T))
 }
 
@@ -36,20 +37,33 @@ class RealmWorker: RealmWorkerProtocol {
         return "REALM HELPER: \(url.absoluteString)"
     }
         
-    func find<T: Realmable>(object: T.Type) -> Unrealm.Results<T> {
+    func fetch<T: Realmable>(object: T.Type) -> Unrealm.Results<T> {
         let objects = realm.objects(object)
         return objects
     }
     
-    func save<T: Realmable>(_ newElement: T) {
-        try! realm.write {
-            realm.add(newElement)
+    func save<T: Realmable>(_ newElement: T, completion: @escaping (Bool) -> Void) {
+        do {
+            try realm.write {
+                realm.add(newElement)
+                completion(true)
+            }
+        } catch {
+            completion(false)
+            preconditionFailure(error.localizedDescription)
         }
+        
     }
     
-    func save<T: Realmable>(contentsOf sequence: [T]) {
-        try! realm.write {
-            realm.add(sequence)
+    func save<T: Realmable>(contentsOf sequence: [T], completion: @escaping (Bool) -> Void) {
+        do {
+            try realm.write {
+               realm.add(sequence)
+               completion(true)
+            }
+        } catch {
+            completion(false)
+            preconditionFailure(error.localizedDescription)
         }
     }
     
@@ -61,32 +75,47 @@ class RealmWorker: RealmWorkerProtocol {
         realm.objects(object).all(where: condition).forEach(performDelete(object:))
     }
     
+    func clear() {
+        do {
+            try realm.write {
+               realm.deleteAll()
+            }
+        } catch {
+            preconditionFailure(error.localizedDescription)
+        }
+    }
+    
     func beginUpdates<T: Realmable>(for type: T.Type, updateClosure: () -> (T)) {
         let updateResult = updateClosure()
-        try! realm.write {
-            realm.add(updateResult, update: .modified)
+        do {
+            try realm.write {
+               realm.add(updateResult, update: .modified)
+            }
+        } catch {
+            preconditionFailure(error.localizedDescription)
         }
     }
     
     private func performDelete<T: Realmable>(object: T) {
-        try! realm.write {
-            realm.delete(object)
+        do {
+            try realm.write {
+               realm.delete(object)
+            }
+        } catch {
+            preconditionFailure(error.localizedDescription)
         }
+
     }
 }
 
 extension Unrealm.Results where Element: RealmableBase {
-    
     func all() -> [Element] {
         return Array(self)
     }
-    
     func all(where condition: String) -> [Element] {
         return Array(self.filter(condition))
     }
-    
     func first(where condition: String) -> Element? {
         return self.filter(condition).first
     }
-    
 }

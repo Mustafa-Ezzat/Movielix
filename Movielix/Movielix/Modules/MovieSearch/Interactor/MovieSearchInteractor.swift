@@ -43,8 +43,8 @@ class MovieSearchInteractor {
         self.categorizer?.categorize(movies: uniqueMovies) { list in
             self.list = list
             DispatchQueue.main.async {
-                realmWorker.save(contentsOf: movies)
-                realmWorker.save(contentsOf: list)
+                realmWorker.save(contentsOf: movies) { _ in}
+                realmWorker.save(contentsOf: list) { _ in }
                 UserDefaults.standard.set(true, forKey: "movielix.cashing")
             }
             presenter.present(list: movies)
@@ -57,8 +57,8 @@ extension MovieSearchInteractor: MovieSearchInteractorProtocol {
         guard let presenter = self.presenter, let realmWorker = self.realmWorker else {
             return
         }
-        list = realmWorker.find(object: YearMives.self).all()
-        presenter.present(list: realmWorker.find(object: Movie.self).all())
+        list = realmWorker.fetch(object: YearMives.self).all()
+        presenter.present(list: realmWorker.fetch(object: Movie.self).all())
     }
     
     func readMovies(completionHandler: @escaping (Result<MovieResponse, Error>) -> Void) {

@@ -10,7 +10,6 @@
 		78425EE6D78533A6836CBE79 /* Pods_Movielix_MovielixUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B265D64B8777D4FA07C8273 /* Pods_Movielix_MovielixUITests.framework */; };
 		9332251662091178F36C4CC6 /* Pods_Movielix.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5843E2EFA73F9DDAA4B565C2 /* Pods_Movielix.framework */; };
 		A94A13CBE1FBB51660A6743F /* Pods_MovielixTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9630F13CF3940A9C6195E33 /* Pods_MovielixTests.framework */; };
-		D693550F2463180D00B90B0F /* stay-home-stay-safe.json in Resources */ = {isa = PBXBuildFile; fileRef = D693550E2463180D00B90B0F /* stay-home-stay-safe.json */; };
 		D69355132463291500B90B0F /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69355122463291500B90B0F /* ReusableView.swift */; };
 		D69355162463299200B90B0F /* UITableViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69355152463299200B90B0F /* UITableViewCell+Extension.swift */; };
 		D693551824632A1100B90B0F /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D693551724632A1100B90B0F /* UITableView+Extension.swift */; };
@@ -67,7 +66,6 @@
 		D6C8492D2464C28D002A220A /* FlickrPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C8492B2464C28D002A220A /* FlickrPhotoCell.swift */; };
 		D6C8492E2464C28D002A220A /* FlickrPhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6C8492C2464C28D002A220A /* FlickrPhotoCell.xib */; };
 		D6C849302464C465002A220A /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C8492F2464C465002A220A /* UICollectionView+Extension.swift */; };
-		D6C849342464E678002A220A /* mask.json in Resources */ = {isa = PBXBuildFile; fileRef = D6C849332464E678002A220A /* mask.json */; };
 		D6C849362464E68A002A220A /* washinghands.json in Resources */ = {isa = PBXBuildFile; fileRef = D6C849352464E68A002A220A /* washinghands.json */; };
 		D6C8493B2465BC84002A220A /* ConstantTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C8493A2465BC84002A220A /* ConstantTests.swift */; };
 		D6C8493E2465BCF1002A220A /* MovieSorterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C8493D2465BCF1002A220A /* MovieSorterTests.swift */; };
@@ -75,6 +73,7 @@
 		D6C849422465CF5D002A220A /* MovieSearcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C849412465CF5D002A220A /* MovieSearcherTests.swift */; };
 		D6C8494424663FD1002A220A /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C8494324663FD0002A220A /* UIImageView+Extension.swift */; };
 		D6C8494624665ED9002A220A /* RealmWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C8494524665ED9002A220A /* RealmWorker.swift */; };
+		D6C8494D24675EFA002A220A /* RealmWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C8494C24675EFA002A220A /* RealmWorkerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,7 +102,6 @@
 		862CFFB997F1DA302A938AD7 /* Pods-Movielix.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movielix.debug.xcconfig"; path = "Target Support Files/Pods-Movielix/Pods-Movielix.debug.xcconfig"; sourceTree = "<group>"; };
 		87467C7D3B3C7D0399372BBF /* Pods-MovielixTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovielixTests.release.xcconfig"; path = "Target Support Files/Pods-MovielixTests/Pods-MovielixTests.release.xcconfig"; sourceTree = "<group>"; };
 		BC2098BDFFAE6FED290C5D4B /* Pods-MovielixTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovielixTests.debug.xcconfig"; path = "Target Support Files/Pods-MovielixTests/Pods-MovielixTests.debug.xcconfig"; sourceTree = "<group>"; };
-		D693550E2463180D00B90B0F /* stay-home-stay-safe.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "stay-home-stay-safe.json"; sourceTree = "<group>"; };
 		D69355122463291500B90B0F /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
 		D69355152463299200B90B0F /* UITableViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extension.swift"; sourceTree = "<group>"; };
 		D693551724632A1100B90B0F /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
@@ -166,7 +164,6 @@
 		D6C8492B2464C28D002A220A /* FlickrPhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrPhotoCell.swift; sourceTree = "<group>"; };
 		D6C8492C2464C28D002A220A /* FlickrPhotoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FlickrPhotoCell.xib; sourceTree = "<group>"; };
 		D6C8492F2464C465002A220A /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
-		D6C849332464E678002A220A /* mask.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mask.json; sourceTree = "<group>"; };
 		D6C849352464E68A002A220A /* washinghands.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = washinghands.json; sourceTree = "<group>"; };
 		D6C8493A2465BC84002A220A /* ConstantTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantTests.swift; sourceTree = "<group>"; };
 		D6C8493D2465BCF1002A220A /* MovieSorterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSorterTests.swift; sourceTree = "<group>"; };
@@ -174,6 +171,7 @@
 		D6C849412465CF5D002A220A /* MovieSearcherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSearcherTests.swift; sourceTree = "<group>"; };
 		D6C8494324663FD0002A220A /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		D6C8494524665ED9002A220A /* RealmWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmWorker.swift; sourceTree = "<group>"; };
+		D6C8494C24675EFA002A220A /* RealmWorkerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmWorkerTests.swift; sourceTree = "<group>"; };
 		F9630F13CF3940A9C6195E33 /* Pods_MovielixTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MovielixTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -314,6 +312,7 @@
 				D6C8493D2465BCF1002A220A /* MovieSorterTests.swift */,
 				D6C8493F2465C817002A220A /* CategorizerTests.swift */,
 				D6C849412465CF5D002A220A /* MovieSearcherTests.swift */,
+				D6C8494C24675EFA002A220A /* RealmWorkerTests.swift */,
 			);
 			path = MovieSearchTests;
 			sourceTree = "<group>";
@@ -517,9 +516,7 @@
 				D69481A92462FAE100CE18D5 /* Assets.xcassets */,
 				D69481AB2462FAE100CE18D5 /* LaunchScreen.storyboard */,
 				D6C849352464E68A002A220A /* washinghands.json */,
-				D6C849332464E678002A220A /* mask.json */,
 				D693558C2463FAB500B90B0F /* stretch.json */,
-				D693550E2463180D00B90B0F /* stay-home-stay-safe.json */,
 				D69481AE2462FAE100CE18D5 /* Info.plist */,
 			);
 			path = Movielix;
@@ -720,7 +717,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D6C849342464E678002A220A /* mask.json in Resources */,
 				D69355862463D8CB00B90B0F /* SF-Pro-Display-Semibold.otf in Resources */,
 				D693553F2463548600B90B0F /* movies.json in Resources */,
 				D69481AD2462FAE100CE18D5 /* LaunchScreen.storyboard in Resources */,
@@ -732,7 +728,6 @@
 				D693555A246382E000B90B0F /* MovieDetailsViewController.xib in Resources */,
 				D69355852463D8CB00B90B0F /* SF-Pro-Display-Medium.otf in Resources */,
 				D69355842463D8CB00B90B0F /* SF-Pro-Display-Bold.otf in Resources */,
-				D693550F2463180D00B90B0F /* stay-home-stay-safe.json in Resources */,
 				D69355832463D8CB00B90B0F /* SF-Pro-Display-Regular.otf in Resources */,
 				D69355222463304800B90B0F /* MovieSearchViewController.xib in Resources */,
 				D6C8492E2464C28D002A220A /* FlickrPhotoCell.xib in Resources */,
@@ -914,6 +909,7 @@
 			files = (
 				D6C8493B2465BC84002A220A /* ConstantTests.swift in Sources */,
 				D69481B82462FAE100CE18D5 /* MovielixTests.swift in Sources */,
+				D6C8494D24675EFA002A220A /* RealmWorkerTests.swift in Sources */,
 				D6C849402465C817002A220A /* CategorizerTests.swift in Sources */,
 				D6C8493E2465BCF1002A220A /* MovieSorterTests.swift in Sources */,
 				D693553724634FEF00B90B0F /* JsonReaderTests.swift in Sources */,

@@ -16,9 +16,12 @@ protocol MovieDetailsViewProtocol: class {
 
 class MovieDetailsViewController: UIViewController {
     @IBOutlet weak var yearLabel: UILabel!
+    @IBOutlet weak var movieCircleView: UIView!
     @IBOutlet weak var ratingView: CosmosView!
     @IBOutlet weak var genresLabel: UILabel!
     @IBOutlet weak var castLabel: UILabel!
+    @IBOutlet weak var genresStaticLabel: UILabel!
+    @IBOutlet weak var castLaStaticbel: UILabel!
     @IBOutlet weak var imageErrorLabel: UILabel!
     @IBOutlet weak var photosCollectionView: UICollectionView!
     @IBOutlet weak var photosCollectionViewHeightConstraint: NSLayoutConstraint!
@@ -33,6 +36,20 @@ class MovieDetailsViewController: UIViewController {
         // Do any additional setup after loading the view.
         handleOutlets()
         startAnimation()
+        handleColorMode()
+    }
+    
+    func handleColorMode() {
+        yearLabel.textColor = .secondary
+        movieCircleView.backgroundColor = .primary
+        ratingView.settings.filledColor = .primary
+        ratingView.settings.filledBorderColor = .primary
+        ratingView.settings.emptyBorderColor = .primary
+        genresLabel.textColor = .primary
+        castLabel.textColor = .primary
+        genresStaticLabel.textColor = .primary
+        castLaStaticbel.textColor = .primary
+        imageErrorLabel.textColor = .primary
     }
     
     func handleOutlets() {

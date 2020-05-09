@@ -73,6 +73,8 @@
 		D6C8493E2465BCF1002A220A /* MovieSorterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C8493D2465BCF1002A220A /* MovieSorterTests.swift */; };
 		D6C849402465C817002A220A /* CategorizerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C8493F2465C817002A220A /* CategorizerTests.swift */; };
 		D6C849422465CF5D002A220A /* MovieSearcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C849412465CF5D002A220A /* MovieSearcherTests.swift */; };
+		D6C8494424663FD1002A220A /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C8494324663FD0002A220A /* UIImageView+Extension.swift */; };
+		D6C8494624665ED9002A220A /* RealmWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C8494524665ED9002A220A /* RealmWorker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -170,6 +172,8 @@
 		D6C8493D2465BCF1002A220A /* MovieSorterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSorterTests.swift; sourceTree = "<group>"; };
 		D6C8493F2465C817002A220A /* CategorizerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorizerTests.swift; sourceTree = "<group>"; };
 		D6C849412465CF5D002A220A /* MovieSearcherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSearcherTests.swift; sourceTree = "<group>"; };
+		D6C8494324663FD0002A220A /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		D6C8494524665ED9002A220A /* RealmWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmWorker.swift; sourceTree = "<group>"; };
 		F9630F13CF3940A9C6195E33 /* Pods_MovielixTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MovielixTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -235,6 +239,7 @@
 				D69355232463374D00B90B0F /* NavigationController.swift */,
 				D693552524633AC300B90B0F /* UIColor+Extension.swift */,
 				D6C8492F2464C465002A220A /* UICollectionView+Extension.swift */,
+				D6C8494324663FD0002A220A /* UIImageView+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -428,6 +433,7 @@
 				D69355672463AC3900B90B0F /* MovieSorter.swift */,
 				D69355692463AE6900B90B0F /* MovieCatogrizer.swift */,
 				D693556B2463B3DB00B90B0F /* MovieSearcher.swift */,
+				D6C8494524665ED9002A220A /* RealmWorker.swift */,
 			);
 			path = Worker;
 			sourceTree = "<group>";
@@ -857,6 +863,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6C8494424663FD1002A220A /* UIImageView+Extension.swift in Sources */,
 				D693555C246382FB00B90B0F /* MovieDetailsCoordinator.swift in Sources */,
 				D6935559246382E000B90B0F /* MovieDetailsViewController.swift in Sources */,
 				D6C8491B2464A99C002A220A /* MoyaDetailsConstant.swift in Sources */,
@@ -893,6 +900,7 @@
 				D693554C2463723C00B90B0F /* LaunchViewController.swift in Sources */,
 				D69355392463509D00B90B0F /* MovieResponsable.swift in Sources */,
 				D69481A12462FAE000CE18D5 /* AppDelegate.swift in Sources */,
+				D6C8494624665ED9002A220A /* RealmWorker.swift in Sources */,
 				D69355212463304800B90B0F /* MovieSearchViewController.swift in Sources */,
 				D693555F246387D200B90B0F /* MovieSearchPresenter.swift in Sources */,
 				D693552624633AC300B90B0F /* UIColor+Extension.swift in Sources */,

@@ -28,7 +28,8 @@ class MovieSearchCoordinator: Coordinator {
         let interactor = MovieSearchInteractor()
         interactor.presenter = presenter
         view.interactor = interactor
-        navigationController.viewControllers = [view]
+        self.navigationController.setViewControllers([view], animated: true)
+
     }
     
     func starthMovieDetails(movie: Movie) {

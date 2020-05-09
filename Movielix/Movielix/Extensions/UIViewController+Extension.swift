@@ -33,6 +33,10 @@ extension UIViewController {
     func showNavigation() {
         navigationController?.navigationBar.isHidden = false
     }
+    
+    func hideBackButtonTitle() {
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+    }
 }
 
 

@@ -24,7 +24,6 @@ extension MovieDetailsInteractor: MovieDetailsInteractorProtocol {
             switch(result) {
             case .success(let response):
                 do {
-                    print("Response: ", try response.mapString())
                     let decodableResponse = try response.map(FlickerContent.self)
                     self.presenter?.present(photos: decodableResponse)
                 } catch {

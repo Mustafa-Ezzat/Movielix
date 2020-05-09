@@ -13,8 +13,11 @@ class MovieSearchCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var yearLabel: UILabel!
     @IBOutlet weak var rateLabel: UILabel!
+    @IBOutlet weak var arrowImageView: UIImageView!
+    @IBOutlet weak var circleView: UIView!
     @IBOutlet weak var rateView: CosmosView!
-    
+    @IBOutlet weak var containerView: RoundedShadowView!
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -31,5 +34,18 @@ class MovieSearchCell: UITableViewCell {
         yearLabel.text = "\(movie.year)"
         rateLabel.text = "(\(movie.rating))"
         rateView.rating = Double(movie.rating)
+        handleColorMode()
+    }
+    
+    func handleColorMode() {
+        titleLabel.textColor = .primary
+        yearLabel.textColor = .secondary
+        rateLabel.textColor = .primary
+        circleView.backgroundColor = .primary
+        rateView.settings.filledColor = .primary
+        rateView.settings.emptyBorderColor = .primary
+        rateView.settings.filledBorderColor = .primary
+        containerView.backgroundColor = .secondary
+        arrowImageView.tintColor(with: .primary)
     }
 }

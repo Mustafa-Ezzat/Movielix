@@ -10,8 +10,8 @@ import UIKit
 import Lottie
 
 protocol MovieSearchViewProtocol: class {
-    func display(list: [YearMives<Int>])
-    func display(list: [Movie], yearList: [YearMives<Int>])
+    func display(list: [YearMives])
+    func display(list: [Movie])
 }
 
 enum DataSourceMode {
@@ -19,57 +19,47 @@ enum DataSourceMode {
     case Search
 }
 
-enum OrderMode {
-    case AnyOrder
-    case Ordered
-}
-
 class MovieSearchViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var animationView: AnimationView!
-    var displayModeItem: UIBarButtonItem!
     var searchController: UISearchController!
     weak var coordinator: MovieSearchCoordinator?
     var interactor: MovieSearchInteractorProtocol?
-    var yearMives: [YearMives<Int>]?
-    var allyearMives: [YearMives<Int>]?
+    var yearMives: [YearMives]?
     var movies: [Movie]?
     var anyOrderdataSource: AnyOrderDataSource?
     var searchDataSource: MovieSearchDataSource?
-    var orderMode: OrderMode!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        title = "Search"
-        orderMode = .AnyOrder
-        displayModeItem = UIBarButtonItem(title: "Ordered", style: .done, target: self, action: #selector(toggleDisplayMode))
-        displayModeItem.isEnabled = false
-        // self.navigationItem.rightBarButtonItem  = displayModeItem
-        movies = [Movie]()
-        showNavigation()
-        customizeSearchBar()
-        setupTableView()
-        startAnimation()
+        customizeUserInteface()
+        fetchMovieList()
     }
     
     deinit {
         print("MovieSearchViewController deinit successfully...")
     }
     
-    @objc func toggleDisplayMode(){
-        if orderMode == .AnyOrder {
-            displayModeItem.title = "Any order"
-            orderMode = .Ordered
-        } else {
-            displayModeItem.title = "Ordered"
-            orderMode = .AnyOrder
-        }
-        toggleDisplayOrder(mode: orderMode)
+    func customizeUserInteface() {
+        title = "Search"
+        hideBackButtonTitle()
+        movies = [Movie]()
+        showNavigation()
+        customizeSearchBar()
+        setupTableView()
     }
     
+    func fetchMovieList() {
+        if let movieIscashing = UserDefaults.standard.value(forKey: "movielix.cashing") as? Bool, movieIscashing {
+            interactor?.fetchMovies()
+        } else {
+            startAnimation()
+        }
+    }
+        
     func startAnimation() {
-        let animation = Animation.named("mask")
+        let animation = Animation.named("washinghands")
         animationView.contentMode = .scaleAspectFit
         animationView.animation = animation
         animationView.play { [unowned self] _ in
@@ -107,7 +97,7 @@ class MovieSearchViewController: UIViewController {
         self.animationView.isHidden = true
     }
     
-    func displayOrdered(with list: [YearMives<Int>]?) {
+    func displayOrdered(with list: [YearMives]?) {
         guard let list = list else {
             return
         }
@@ -117,29 +107,12 @@ class MovieSearchViewController: UIViewController {
         self.tableView.delegate = self.searchDataSource
     }
     
-    func toggleDisplayOrder(mode: OrderMode) {
-        DispatchQueue.main.async { [weak self] in
-            guard let self = self else {
-                return
-            }
-            switch mode {
-            case .AnyOrder:
-                self.displayAnyOrder()
-            case .Ordered:
-                self.displayOrdered(with: self.allyearMives)
-            }
-            self.tableView.reloadData()
-        }
-    }
-    
     func reloadData(dataSourceMode: DataSourceMode) {
         DispatchQueue.main.async { [unowned self] in
             switch dataSourceMode {
             case .AnyOrder:
-                self.displayModeItem.isEnabled = true
                 self.displayAnyOrder()
             case .Search:
-                self.displayModeItem.isEnabled = false
                 self.displayOrdered(with: self.yearMives)
             }
             self.tableView.reloadData()
@@ -148,12 +121,11 @@ class MovieSearchViewController: UIViewController {
 }
 
 extension MovieSearchViewController: MovieSearchViewProtocol {
-    func display(list: [Movie], yearList: [YearMives<Int>]) {
+    func display(list: [Movie]) {
         movies = list
-        self.allyearMives = yearList
         reloadData(dataSourceMode: .AnyOrder)
     }
-    func display(list: [YearMives<Int>]) {
+    func display(list: [YearMives]) {
         yearMives = list
         reloadData(dataSourceMode: .Search)
     }

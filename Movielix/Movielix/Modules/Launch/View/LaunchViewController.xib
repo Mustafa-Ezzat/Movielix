@@ -19,6 +19,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LaunchViewController" customModule="Movielix" customModuleProvider="target">
             <connections>
                 <outlet property="animationView" destination="xcs-zZ-j74" id="z58-kv-r4e"/>
+                <outlet property="titleLabel" destination="ZaX-hc-NCM" id="Ucz-x8-XET"/>
                 <outlet property="view" destination="gHk-9p-xey" id="WQl-wl-amq"/>
             </connections>
         </placeholder>

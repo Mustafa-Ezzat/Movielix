@@ -15,11 +15,11 @@ protocol Searcher {
 }
 
 class MovieSearcher: Searcher {
-    typealias T = YearMives<Int>
+    typealias T = YearMives
     typealias Keyword = String
     
-    func query(list: [YearMives<Int>], keyword: String) -> [YearMives<Int>] {
-        var filterdResults = [YearMives<Int>]()
+    func query(list: [YearMives], keyword: String) -> [YearMives] {
+        var filterdResults = [YearMives]()
         for category in list {
             let movies = category.movies.filter{$0.isExist(keyword)}.prefix(5)
             if !movies.isEmpty {

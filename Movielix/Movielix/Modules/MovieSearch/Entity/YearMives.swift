@@ -7,10 +7,18 @@
 //
 
 import Foundation
+import Unrealm
 
-struct YearMives<T> where T: Hashable & Comparable {
-    let year: T
-    let movies: [Movie]    
+protocol Category {
+    associatedtype Key: Hashable & Comparable
+    associatedtype Value: Hashable & Comparable
+}
+
+struct YearMives: Category {
+    typealias Key = Int
+    typealias Value = Movie
+    let year: Key
+    let movies: [Value]
 }
 
 extension YearMives: Comparable & Hashable {
@@ -19,5 +27,12 @@ extension YearMives: Comparable & Hashable {
     }
     static func == (lhs: YearMives, rhs: YearMives) -> Bool {
         return lhs.year == rhs.year
+    }
+}
+
+extension YearMives: Realmable {
+    init() {
+        year = 0
+        movies = []
     }
 }

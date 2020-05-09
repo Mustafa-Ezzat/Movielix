@@ -14,11 +14,11 @@ protocol DataSource {
 }
 
 class MovieSearchDataSource: NSObject, DataSource {
-    typealias T = YearMives<Int>
-    var list: [YearMives<Int>]
+    typealias T = YearMives
+    var list: [YearMives]
     weak var view: MovieSearchViewController?
     
-    init(list: [YearMives<Int>]) {
+    init(list: [YearMives]) {
         self.list = list
     }
 }
@@ -56,11 +56,12 @@ extension MovieSearchDataSource: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int){
         view.tintColor = .primary
+        view.backgroundColor = .primary
         guard let header: UITableViewHeaderFooterView = view as? UITableViewHeaderFooterView, let textLabel = header.textLabel  else {
             return
         }
         textLabel.textAlignment = .center
-        textLabel.textColor = .white
+        textLabel.textColor = .secondary
         textLabel.font = UIFont(fontStyle: .SFProDisplayBold, size: 22)
     }
 

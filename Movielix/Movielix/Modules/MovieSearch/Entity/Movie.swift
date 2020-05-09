@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Unrealm
 
 struct Movie: Codable {
     let title: String
@@ -35,5 +36,15 @@ extension Movie: Searchable {
     typealias Keyword = String
     func isExist(_ keyword: String) -> Bool {
         return title.lowercased().contains(keyword.lowercased())
+    }
+}
+
+extension Movie: Realmable {
+    init() {
+        title = ""
+        year = 0
+        cast = [String]()
+        genres = [String]()
+        rating = 0
     }
 }

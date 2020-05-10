@@ -11,15 +11,12 @@ import UIKit
 class MovieSearchCoordinator: Coordinator {
     var navigationController: UINavigationController
     var movieSearchCoordinator: MovieDetailsCoordinator?
-    
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
-    
     deinit {
         print("MovieSearchCoordinator deinit successfully...")
     }
-    
     func start() {
         let view = MovieSearchViewController.instintiate()
         view.coordinator = self
@@ -29,9 +26,7 @@ class MovieSearchCoordinator: Coordinator {
         interactor.presenter = presenter
         view.interactor = interactor
         self.navigationController.setViewControllers([view], animated: true)
-
     }
-    
     func starthMovieDetails(movie: MovieViewModel) {
         movieSearchCoordinator = MovieDetailsCoordinator(navigationController: navigationController, movie: movie)
         movieSearchCoordinator?.start()

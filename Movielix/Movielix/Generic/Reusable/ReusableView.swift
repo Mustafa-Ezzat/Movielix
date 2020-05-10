@@ -9,14 +9,14 @@
 import UIKit
 
 protocol ReusableView: class {
-    static var defaultReuseIdentifier: String { get }
+    static var reuseIdentifier: String { get }
 }
 
 extension ReusableView where Self: UIView {
-    static var defaultReuseIdentifier: String {
+    static var reuseIdentifier: String {
         return String(describing: self)
     }
     static var nib: UINib {
-        return UINib(nibName: self.defaultReuseIdentifier, bundle: nil)
+        return UINib(nibName: self.reuseIdentifier, bundle: nil)
     }
 }

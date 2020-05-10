@@ -11,6 +11,7 @@ target 'Movielix' do
   pod 'Cosmos'
   pod 'Nuke'
   pod 'Unrealm'
+  pod 'SwiftLint'
 
   target 'MovielixTests' do
     inherit! :search_paths

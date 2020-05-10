@@ -11,7 +11,6 @@ import XCTest
 
 class CategorizerTests: XCTestCase {
     var sut: MovieCategorizer!
-    
     override func setUp() {
         super.setUp()
         // should init after super.setup()

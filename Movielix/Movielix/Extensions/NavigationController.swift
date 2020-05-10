@@ -8,12 +8,10 @@
 import UIKit
 
 class NavigationController: UINavigationController {
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
     }
-    
     private func configure() {
         navigationBar.tintColor = .primary
         if #available(iOS 12.0, *) {
@@ -22,9 +20,9 @@ class NavigationController: UINavigationController {
                 navigationBar.backgroundColor = .black
             }
         }
-
-        let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.primary, NSAttributedString.Key.font: UIFont(fontStyle: .SFProDisplayBold, size: 24)]
-        navigationBar.titleTextAttributes = textAttributes as [NSAttributedString.Key : Any]
+        var textAttributes = [NSAttributedString.Key: Any]()
+        textAttributes[NSAttributedString.Key.foregroundColor] = UIColor.primary
+        textAttributes[NSAttributedString.Key.font] = UIFont(fontStyle: .SFProDisplayBold, size: 24)
+        navigationBar.titleTextAttributes = textAttributes
     }
-    
 }

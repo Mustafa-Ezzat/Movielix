@@ -9,14 +9,14 @@
 import Foundation
 
 protocol Responsable {
-    associatedtype T
-    func map(_ data: Data, completion: @escaping (Result<T, Error>) -> Void)
+    associatedtype Model
+    func map(_ data: Data, completion: @escaping (Result<Model, Error>) -> Void)
 }
 
-extension Responsable where T: Decodable {
-    func map(_ data: Data, completion: @escaping (Result<T, Error>) -> Void) {
+extension Responsable where Model: Decodable {
+    func map(_ data: Data, completion: @escaping (Result<Model, Error>) -> Void) {
         do {
-            let decodableResponse = try JSONDecoder().decode(T.self, from: data)
+            let decodableResponse = try JSONDecoder().decode(Model.self, from: data)
             completion(.success(decodableResponse))
         } catch {
             completion(.failure(error))

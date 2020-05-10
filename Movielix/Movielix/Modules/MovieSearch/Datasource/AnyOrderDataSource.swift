@@ -8,7 +8,7 @@
 import UIKit
 
 class AnyOrderDataSource: NSObject, DataSource {
-    typealias T = MovieViewModel
+    typealias Element = MovieViewModel
     var list: [MovieViewModel]
     weak var view: MovieSearchViewController?
 
@@ -31,7 +31,6 @@ extension AnyOrderDataSource: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return list.count
     }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: MovieSearchCell = tableView.dequeueCell(for: indexPath)
         if validIndex(indexPath) {
@@ -53,5 +52,3 @@ extension AnyOrderDataSource: UITableViewDelegate {
         }
     }
 }
-
-

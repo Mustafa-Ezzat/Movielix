@@ -18,12 +18,12 @@
                 <outlet property="animationView" destination="qSP-5T-RPX" id="Qa1-Hu-XJM"/>
                 <outlet property="castLaStaticbel" destination="RAv-ZQ-IpW" id="20F-vf-dg8"/>
                 <outlet property="castLabel" destination="dru-I2-QCJ" id="pUE-tA-6T2"/>
+                <outlet property="collectionHeightConstraint" destination="9hL-V8-fFd" id="Okj-0d-NNk"/>
                 <outlet property="genresLabel" destination="EJD-ip-c2d" id="HsX-uG-yax"/>
                 <outlet property="genresStaticLabel" destination="orB-Ez-h9u" id="Qt5-Lz-DDo"/>
                 <outlet property="imageErrorLabel" destination="Mxe-gp-g1b" id="Qtx-J1-HQD"/>
                 <outlet property="movieCircleView" destination="hAj-Rg-moG" id="HNm-wD-V3K"/>
                 <outlet property="photosCollectionView" destination="SZG-YN-ALB" id="X2v-sB-mSU"/>
-                <outlet property="photosCollectionViewHeightConstraint" destination="9hL-V8-fFd" id="0zS-CJ-cNe"/>
                 <outlet property="ratingView" destination="9Mz-OG-4kh" id="Sd8-Nl-655"/>
                 <outlet property="view" destination="3hZ-Yl-7gv" id="kIP-NW-k7n"/>
                 <outlet property="yearLabel" destination="6D2-J3-vuu" id="TCH-7C-ydQ"/>

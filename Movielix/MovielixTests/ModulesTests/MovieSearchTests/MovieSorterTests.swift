@@ -10,7 +10,6 @@ import XCTest
 
 class MovieSorterTests: XCTestCase {
     var sut: MovieSorter!
-    
     override func setUp() {
         super.setUp()
         // should init after super.setup()

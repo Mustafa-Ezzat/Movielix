@@ -5,8 +5,6 @@
 //  Created by Mustafa Ezzat on 5/7/20.
 //  Copyright © 2020 Swvl. All rights reserved.
 //
-
-
 import Moya
 
 enum MovieDetailsTarget {
@@ -20,30 +18,30 @@ extension MovieDetailsTarget: TargetType {
         }
         return url
     }
-    
     var path: String {
         return ""
-        //return MovieDetailsConstant.Flicker.method
     }
-    
     var method: Method {
         return .get
     }
-    
     var sampleData: Data {
         Data()
     }
-    
     var task: Task {
         switch self {
         case .photoList(let movieTitle):
-            let params = MovieDetailsConstant.Flicker.Params.self
-            let parameters: [String : Any] =  [params.apiKey: MovieDetailsConstant.Flicker.apiKey, params.format: MovieDetailsConstant.Flicker.format, params.nojsoncallback: 1, params.text: movieTitle, params.page: 1, params.perPage: 10, params.method: MovieDetailsConstant.Flicker.method]
+            let flickr = MovieDetailsConstant.Flicker.self
+            let params = MovieDetailsConstant.Params.self
+            var parameters = [String: Any]()
+            parameters = [params.apiKey: flickr.apiKey, params.format: flickr.format, params.nojsoncallback: 1]
+            parameters[params.text] = movieTitle
+            parameters[params.page] = 1
+            parameters[params.perPage] = 10
+            parameters[params.method] = flickr.method
             return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
         }
     }
-    
-    var headers: [String : String]? {
+    var headers: [String: String]? {
         nil
     }
 }

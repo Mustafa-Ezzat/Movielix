@@ -13,14 +13,12 @@ import Unrealm
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var coordinator: LaunchCoordinator?
-    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         start()
         registerRealmables()
         return true
     }
-    
     func start() {
         let navigationController = NavigationController()
         coordinator = LaunchCoordinator(navigationController: navigationController)
@@ -29,10 +27,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
     }
-    
     func registerRealmables() {
         Realm.registerRealmables(Movie.self)
         Realm.registerRealmables(YearMives.self)
     }
 }
-

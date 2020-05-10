@@ -8,7 +8,7 @@
 
 import UIKit
 extension UIViewController: ReusableView {
-    static var defaultReuseIdentifier: String {
+    static var reuseIdentifier: String {
         return String(describing: self)
     }
 }
@@ -19,7 +19,7 @@ protocol XIB {
 
 extension XIB where Self: UIViewController {
     static func instintiate() -> Self {
-        return self.init(nibName: self.defaultReuseIdentifier, bundle: nil)
+        return self.init(nibName: self.reuseIdentifier, bundle: nil)
     }
 }
 
@@ -29,14 +29,10 @@ extension UIViewController {
     func hideNavigation() {
         navigationController?.navigationBar.isHidden = true
     }
-    
     func showNavigation() {
         navigationController?.navigationBar.isHidden = false
     }
-    
     func hideBackButtonTitle() {
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
 }
-
-

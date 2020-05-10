@@ -11,17 +11,14 @@ import UIKit
 class LaunchCoordinator: Coordinator {
     var navigationController: UINavigationController
     var movieSearchCoordinator: MovieSearchCoordinator?
-    
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
-    
     func start() {
-        let vc = LaunchViewController.instintiate()
-        vc.coordinator = self
-        navigationController.pushViewController(vc, animated: true)
+        let launchViewController = LaunchViewController.instintiate()
+        launchViewController.coordinator = self
+        navigationController.pushViewController(launchViewController, animated: true)
     }
-    
     func startSearchMovie() {
         movieSearchCoordinator = MovieSearchCoordinator(navigationController: navigationController)
         movieSearchCoordinator?.start()

@@ -9,7 +9,7 @@
 import UIKit
 
 class MovieDetailsDataSource: NSObject, DataSource {
-    typealias T = FlickrPhotoViewModel
+    typealias Element = FlickrPhotoViewModel
     var list: [FlickrPhotoViewModel]
 
     init(list: [FlickrPhotoViewModel]) {
@@ -21,7 +21,6 @@ extension MovieDetailsDataSource: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return list.count
     }
-    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: FlickrPhotoCell = collectionView.dequeueCell(for: indexPath)
         let photo = list[indexPath.row]

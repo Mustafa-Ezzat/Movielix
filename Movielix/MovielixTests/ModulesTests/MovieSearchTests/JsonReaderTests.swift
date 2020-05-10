@@ -10,7 +10,6 @@ import XCTest
 
 class JsonReaderTests: XCTestCase {
     var sut: Reader!
-    
     override func setUp() {
         super.setUp()
         // should init after super.setup()
@@ -24,8 +23,8 @@ class JsonReaderTests: XCTestCase {
     }
 
     func test_JsonReader_ReadMoviesFromJson() {
-        sut.read() { result in
-            switch(result) {
+        sut.read { result in
+            switch result {
             case .success(let response):
                 XCTAssertGreaterThanOrEqual(response.movies.count, 0)
             case .failure(let error):

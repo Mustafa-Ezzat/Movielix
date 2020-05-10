@@ -11,7 +11,6 @@ import XCTest
 
 class MovieSearcherTests: XCTestCase {
     var sut: MovieSearcher!
-    
     override func setUp() {
         super.setUp()
         // should init after super.setup()
@@ -29,13 +28,11 @@ class MovieSearcherTests: XCTestCase {
         let result = sut.query(list: ConstantTests.categorizedMovies, keyword: keyword)
         XCTAssertEqual(result.description, ConstantTests.prefixMovieWithTheOne.description)
     }
-    
     func test_MovieSearcher_Query_Postfix() {
         let keyword = "Madea Halloween"
         let result = sut.query(list: ConstantTests.categorizedMovies, keyword: keyword)
         XCTAssertEqual(result.description, ConstantTests.postfixMovieWithMadeaHalloween.description)
     }
-    
     func test_MovieSearcher_Query_Infix() {
         let keyword = "Bob\'s Super Groovy"
         let result = sut.query(list: ConstantTests.categorizedMovies, keyword: keyword)

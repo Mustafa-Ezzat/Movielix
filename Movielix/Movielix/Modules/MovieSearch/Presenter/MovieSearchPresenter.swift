@@ -15,7 +15,6 @@ protocol MovieSearchPresenterProtocol {
 
 class MovieSearchPresenter {
     weak var view: MovieSearchViewProtocol?
-    
     deinit {
         print("MovieSearchPresenter deinit successfully...")
     }

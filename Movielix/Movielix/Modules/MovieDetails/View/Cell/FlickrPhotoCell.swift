@@ -11,7 +11,6 @@ import Nuke
 
 class FlickrPhotoCell: UICollectionViewCell {
     @IBOutlet weak var flickrImageView: UIImageView!
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

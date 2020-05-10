@@ -24,13 +24,12 @@ class MovieDetailsViewController: UIViewController {
     @IBOutlet weak var castLaStaticbel: UILabel!
     @IBOutlet weak var imageErrorLabel: UILabel!
     @IBOutlet weak var photosCollectionView: UICollectionView!
-    @IBOutlet weak var photosCollectionViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var collectionHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var animationView: AnimationView!
     weak var coordinator: MovieDetailsCoordinator?
     var movie: MovieViewModel?
     var interactor: MovieDetailsInteractorProtocol?
     var datasource: MovieDetailsDataSource!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -38,7 +37,6 @@ class MovieDetailsViewController: UIViewController {
         startAnimation()
         handleColorMode()
     }
-    
     func handleColorMode() {
         yearLabel.textColor = .secondary
         movieCircleView.backgroundColor = .primary
@@ -51,7 +49,6 @@ class MovieDetailsViewController: UIViewController {
         castLaStaticbel.textColor = .primary
         imageErrorLabel.textColor = .primary
     }
-    
     func handleOutlets() {
         guard let movie = movie else {
             return
@@ -67,7 +64,6 @@ class MovieDetailsViewController: UIViewController {
         genresLabel.text = movie.genresList.joined(separator: "\n")
         castLabel.text = movie.castList.joined(separator: "\n")
     }
-    
     func startAnimation() {
            let animation = Animation.named("stretch")
            animationView.contentMode = .scaleAspectFit
@@ -92,7 +88,8 @@ extension MovieDetailsViewController: MovieDetailsViewProtocol {
                 return
             }
             self.photosCollectionView.reloadData()
-            self.photosCollectionViewHeightConstraint.constant = self.photosCollectionView.collectionViewLayout.collectionViewContentSize.height
+            let contentHeight = self.photosCollectionView.collectionViewLayout.collectionViewContentSize.height
+            self.collectionHeightConstraint.constant = contentHeight
         }
     }
 }

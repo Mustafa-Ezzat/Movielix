@@ -27,7 +27,6 @@ class MovieSearchCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
         // Configure the view for the selected state
     }
-    
     func configure(_ movie: MovieViewModel) {
         titleLabel.text = movie.title
         titleLabel.font = UIFont(fontStyle: .SFProDisplayBold, size: 20)
@@ -36,7 +35,6 @@ class MovieSearchCell: UITableViewCell {
         rateView.rating = Double(movie.rating)
         handleColorMode()
     }
-    
     func handleColorMode() {
         titleLabel.textColor = .primary
         yearLabel.textColor = .secondary

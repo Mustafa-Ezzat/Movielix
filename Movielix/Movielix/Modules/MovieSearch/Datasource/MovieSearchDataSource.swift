@@ -9,15 +9,14 @@
 import UIKit
 
 protocol DataSource {
-    associatedtype T
-    var list: [T] {get set}
+    associatedtype Element
+    var list: [Element] {get set}
 }
 
 class MovieSearchDataSource: NSObject, DataSource {
-    typealias T = YearMivesViewModel
+    typealias Element = YearMivesViewModel
     var list: [YearMivesViewModel]
     weak var view: MovieSearchViewController?
-    
     init(list: [YearMivesViewModel]) {
         self.list = list
     }
@@ -30,14 +29,12 @@ extension MovieSearchDataSource: UITableViewDataSource {
         }
         return true
     }
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         return list.count
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return list[section].movies.count
     }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: MovieSearchCell = tableView.dequeueCell(for: indexPath)
         if validIndex(indexPath) {
@@ -49,15 +46,16 @@ extension MovieSearchDataSource: UITableViewDataSource {
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "\(list[section].year)"
     }
-    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 44
     }
-    
-    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int){
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         view.tintColor = .primary
         view.backgroundColor = .primary
-        guard let header: UITableViewHeaderFooterView = view as? UITableViewHeaderFooterView, let textLabel = header.textLabel  else {
+        guard let header: UITableViewHeaderFooterView = view as? UITableViewHeaderFooterView else {
+            return
+        }
+        guard let textLabel = header.textLabel else {
             return
         }
         textLabel.textAlignment = .center
@@ -80,5 +78,3 @@ extension MovieSearchDataSource: UITableViewDelegate {
         }
     }
 }
-
-

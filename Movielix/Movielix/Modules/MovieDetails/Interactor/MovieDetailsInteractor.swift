@@ -21,7 +21,7 @@ class MovieDetailsInteractor {
 extension MovieDetailsInteractor: MovieDetailsInteractorProtocol {
     func fetchPhotoList(movieTitle: String) {
         provider.request(.photoList(movieTitle: movieTitle)) { result in
-            switch(result) {
+            switch result {
             case .success(let response):
                 do {
                     let decodableResponse = try response.map(FlickerContent.self)

@@ -21,7 +21,6 @@ class MovieSearchInteractor {
     var searcher: MovieSearcher?
     var list: [YearMives]?
     var realmWorker: RealmWorker?
-    
     init() {
         // Single responsability one reason to change
         reader = JsonReader()
@@ -30,11 +29,9 @@ class MovieSearchInteractor {
         list = [YearMives]()
         realmWorker = RealmWorker()
     }
-    
     deinit {
         print("MovieSearchInteractor deinit successfully...")
     }
-    
     func categorize(_ movies: [Movie]) {
         guard let presenter = self.presenter, let realmWorker = self.realmWorker else {
             return
@@ -60,13 +57,12 @@ extension MovieSearchInteractor: MovieSearchInteractorProtocol {
         list = realmWorker.fetch(object: YearMives.self).all()
         presenter.present(list: realmWorker.fetch(object: Movie.self).all())
     }
-    
     func readMovies(completionHandler: @escaping (Result<MovieResponse, Error>) -> Void) {
         DispatchQueue.global(qos: .utility).async { [weak self] in
             guard let self = self else {
                 return
             }
-            self.reader?.read() {  result in
+            self.reader?.read {  result in
                 switch result {
                 case .success(let response):
                     self.categorize(response.movies)
@@ -76,8 +72,7 @@ extension MovieSearchInteractor: MovieSearchInteractorProtocol {
             }
         }
     }
-    
-    func search(by keyword: String){
+    func search(by keyword: String) {
         DispatchQueue.global(qos: .utility).async { [weak self] in
             guard let self = self, let presenter = self.presenter else {
                 return

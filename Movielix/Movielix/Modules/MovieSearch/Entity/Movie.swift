@@ -24,7 +24,6 @@ extension Movie: Comparable & Hashable {
         }
         return lhsRating < rhsRating
     }
-    
     static func == (lhs: Movie, rhs: Movie) -> Bool {
         return lhs.title == rhs.title && lhs.year == rhs.year
     }

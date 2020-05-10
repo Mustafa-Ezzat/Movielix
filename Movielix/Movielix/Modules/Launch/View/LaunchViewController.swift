@@ -18,18 +18,15 @@ class LaunchViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         startAnimation()
         hideNavigation()
         handleColorMode()
     }
-    
     func handleColorMode() {
         titleLabel.textColor = .primary
     }
-    
     func startAnimation() {
         let animation = Animation.named("washinghands")
         animationView.contentMode = .scaleAspectFit
@@ -42,10 +39,7 @@ class LaunchViewController: UIViewController {
             self.startSearchMovie()
         }
     }
-    
     func startSearchMovie() {
         coordinator?.startSearchMovie()
     }
 }
-
-

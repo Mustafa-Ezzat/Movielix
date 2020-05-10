@@ -15,8 +15,8 @@ protocol MovieSearchViewProtocol: class {
 }
 
 enum DataSourceMode {
-    case AnyOrder
-    case Search
+    case anyOrder
+    case search
 }
 
 class MovieSearchViewController: UIViewController {
@@ -36,11 +36,9 @@ class MovieSearchViewController: UIViewController {
         customizeUserInteface()
         fetchMovieList()
     }
-    
     deinit {
         print("MovieSearchViewController deinit successfully...")
     }
-    
     func customizeUserInteface() {
         title = "Search"
         hideBackButtonTitle()
@@ -49,7 +47,6 @@ class MovieSearchViewController: UIViewController {
         customizeSearchBar()
         setupTableView()
     }
-    
     func fetchMovieList() {
         if let movieIscashing = UserDefaults.standard.value(forKey: "movielix.cashing") as? Bool, movieIscashing {
             interactor?.fetchMovies()
@@ -57,7 +54,6 @@ class MovieSearchViewController: UIViewController {
             startAnimation()
         }
     }
-        
     func startAnimation() {
         let animation = Animation.named("washinghands")
         animationView.contentMode = .scaleAspectFit
@@ -66,7 +62,6 @@ class MovieSearchViewController: UIViewController {
             self.interactor?.readMovies { _ in}
         }
     }
-    
     func customizeSearchBar() {
         searchController = UISearchController(searchResultsController: nil)
         searchController.searchBar.placeholder = "Search movies..."
@@ -74,7 +69,6 @@ class MovieSearchViewController: UIViewController {
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
     }
-    
     func setupTableView() {
         anyOrderdataSource = AnyOrderDataSource(list: [])
         anyOrderdataSource?.view = self
@@ -84,9 +78,7 @@ class MovieSearchViewController: UIViewController {
         tableView.register(cell: MovieSearchCell.self)
         tableView.dataSource = anyOrderdataSource
         tableView.delegate = anyOrderdataSource
-        
     }
-    
     func displayAnyOrder() {
         guard let list = self.movies else {
             return
@@ -96,7 +88,6 @@ class MovieSearchViewController: UIViewController {
         self.tableView.delegate = self.anyOrderdataSource
         self.animationView.isHidden = true
     }
-    
     func displayOrdered(with list: [YearMivesViewModel]?) {
         guard let list = list else {
             return
@@ -106,13 +97,12 @@ class MovieSearchViewController: UIViewController {
         self.tableView.dataSource = self.searchDataSource
         self.tableView.delegate = self.searchDataSource
     }
-    
     func reloadData(dataSourceMode: DataSourceMode) {
         DispatchQueue.main.async { [unowned self] in
             switch dataSourceMode {
-            case .AnyOrder:
+            case .anyOrder:
                 self.displayAnyOrder()
-            case .Search:
+            case .search:
                 self.displayOrdered(with: self.yearMives)
             }
             self.tableView.reloadData()
@@ -123,18 +113,18 @@ class MovieSearchViewController: UIViewController {
 extension MovieSearchViewController: MovieSearchViewProtocol {
     func display(list: [MovieViewModel]) {
         movies = list
-        reloadData(dataSourceMode: .AnyOrder)
+        reloadData(dataSourceMode: .anyOrder)
     }
     func display(list: [YearMivesViewModel]) {
         yearMives = list
-        reloadData(dataSourceMode: .Search)
+        reloadData(dataSourceMode: .search)
     }
 }
 
 extension MovieSearchViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         guard let keyword = searchController.searchBar.text, !keyword.isEmpty else {
-            reloadData(dataSourceMode: .AnyOrder)
+            reloadData(dataSourceMode: .anyOrder)
             return
         }
         interactor?.search(by: keyword)

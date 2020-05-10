@@ -9,13 +9,12 @@
 import Foundation
 
 protocol Sorter {
-    associatedtype T: Comparable
-    func sort(list: [T]) -> [T]
+    associatedtype Element: Comparable
+    func sort(list: [Element]) -> [Element]
 }
 
 class MovieSorter: Sorter {
-    typealias T = Movie
-    
+    typealias Element = Movie
     func sort(list: [Movie]) -> [Movie] {
         return list.sorted(by: >)
     }

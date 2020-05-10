@@ -23,7 +23,6 @@ protocol RealmWorkerProtocol {
 
 class RealmWorker: RealmWorkerProtocol {
     private var realm: Realm
-    
     init() {
         do {
             realm = try Realm()
@@ -33,15 +32,15 @@ class RealmWorker: RealmWorkerProtocol {
     }
 
     var databaseURL: String {
-        guard let url = Realm.Configuration.defaultConfiguration.fileURL else { return "REALM HELPER: No database found" }
+        guard let url = Realm.Configuration.defaultConfiguration.fileURL else {
+            return "REALM HELPER: No database found"
+        }
         return "REALM HELPER: \(url.absoluteString)"
     }
-        
     func fetch<T: Realmable>(object: T.Type) -> Unrealm.Results<T> {
         let objects = realm.objects(object)
         return objects
     }
-    
     func save<T: Realmable>(_ newElement: T, completion: @escaping (Bool) -> Void) {
         do {
             try realm.write {
@@ -52,9 +51,7 @@ class RealmWorker: RealmWorkerProtocol {
             completion(false)
             preconditionFailure(error.localizedDescription)
         }
-        
     }
-    
     func save<T: Realmable>(contentsOf sequence: [T], completion: @escaping (Bool) -> Void) {
         do {
             try realm.write {
@@ -66,15 +63,12 @@ class RealmWorker: RealmWorkerProtocol {
             preconditionFailure(error.localizedDescription)
         }
     }
-    
     func delete<T: Realmable>(object: T.Type) {
         realm.objects(object).all().forEach(performDelete(object:))
     }
-    
     func delete<T: Realmable>(object: T.Type, where condition: String) {
         realm.objects(object).all(where: condition).forEach(performDelete(object:))
     }
-    
     func clear() {
         do {
             try realm.write {
@@ -84,7 +78,6 @@ class RealmWorker: RealmWorkerProtocol {
             preconditionFailure(error.localizedDescription)
         }
     }
-    
     func beginUpdates<T: Realmable>(for type: T.Type, updateClosure: () -> (T)) {
         let updateResult = updateClosure()
         do {
@@ -95,7 +88,6 @@ class RealmWorker: RealmWorkerProtocol {
             preconditionFailure(error.localizedDescription)
         }
     }
-    
     private func performDelete<T: Realmable>(object: T) {
         do {
             try realm.write {
@@ -104,7 +96,6 @@ class RealmWorker: RealmWorkerProtocol {
         } catch {
             preconditionFailure(error.localizedDescription)
         }
-
     }
 }
 

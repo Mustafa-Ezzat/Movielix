@@ -15,7 +15,7 @@ enum FontStyle: String {
     case SFProDisplayMedium   = "SFProDisplay-Medium"
     case SFProDisplayRegular  = "SFProDisplay-Regular"
     case SFProDisplaySemibold = "SFProDisplay-Semibold"
-    case RobotoLight          = "Roboto-Light"
+    case robotoLight          = "Roboto-Light"
 }
 extension UIFont {
     convenience init?(fontStyle: FontStyle, size: CGFloat) {

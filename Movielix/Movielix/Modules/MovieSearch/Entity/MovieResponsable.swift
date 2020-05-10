@@ -8,5 +8,5 @@
 
 import Foundation
 class MovieResponsable: Responsable {
-    typealias T = MovieResponse
+    typealias Model = MovieResponse
 }

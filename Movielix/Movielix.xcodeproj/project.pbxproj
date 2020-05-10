@@ -645,6 +645,7 @@
 				D694819A2462FAE000CE18D5 /* Frameworks */,
 				D694819B2462FAE000CE18D5 /* Resources */,
 				A7DD5B04CD4D0D1710F3A5C0 /* [CP] Embed Pods Frameworks */,
+				D6C84956246797E0002A220A /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -858,6 +859,23 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Movielix/Pods-Movielix-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		D6C84956246797E0002A220A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
 		};
 		E85C043C8D7B867F8A6071FC /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;

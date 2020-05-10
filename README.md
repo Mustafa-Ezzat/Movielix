@@ -37,6 +37,8 @@ query
 
 ## Testing
 
-Testing is the self-documentation for each piece of the problem
-
 TDD is self-documentation for your product, it is when your tests are written before your implementation. These are the TDD three Laws: 1) (RED) Write a failing test 2) (Green) Make the test pass 3) Refactor your code. 
+
+Testing is the self-documentation for each piece of the problem:
+
+- (Read the local list of movies)[https://github.com/Mustafa-Ezzat/Movielix/blob/master/Movielix/MovielixTests/ModulesTests/MovieSearchTests/JsonReaderTests.swift]

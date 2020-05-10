@@ -1,4 +1,8 @@
 # Movielix
-Swvl interview
 
-My colleague! I will write the full doc today, you can read the commits ;)
+SWVL Mobile Challenge
+
+# Table of Contents:
+- [Installation](#features)
+
+## Installation

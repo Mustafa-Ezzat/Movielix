@@ -22,20 +22,30 @@ class MovieSearcherTests: XCTestCase {
         sut = nil
         super.tearDown()
     }
-
+    func searchQuery(by keyword: String, completion: @escaping ([YearMives]) -> Void) {
+        let result =  sut.query(list: ConstantTests.categorizedMovies, keyword: keyword)
+        completion(result)
+    }
     func test_MovieSearcher_Query_Prefix() {
-        let keyword = "The one"
-        let result = sut.query(list: ConstantTests.categorizedMovies, keyword: keyword)
-        XCTAssertEqual(result.description, ConstantTests.prefixMovieWithTheOne.description)
+        searchQuery(by: "The one") { result in
+            XCTAssertEqual(result.description, ConstantTests.prefixMovieWithTheOne.description)
+        }
     }
     func test_MovieSearcher_Query_Postfix() {
-        let keyword = "Madea Halloween"
-        let result = sut.query(list: ConstantTests.categorizedMovies, keyword: keyword)
-        XCTAssertEqual(result.description, ConstantTests.postfixMovieWithMadeaHalloween.description)
+        searchQuery(by: "Madea Halloween") { result in
+            XCTAssertEqual(result.description, ConstantTests.postfixMovieWithMadeaHalloween.description)
+        }
     }
     func test_MovieSearcher_Query_Infix() {
-        let keyword = "Bob\'s Super Groovy"
-        let result = sut.query(list: ConstantTests.categorizedMovies, keyword: keyword)
-        XCTAssertEqual(result.description, ConstantTests.infixMovieBobSuperGroovy.description)
+        searchQuery(by: "Bob\'s Super Groovy") { result in
+            XCTAssertEqual(result.description, ConstantTests.infixMovieBobSuperGroovy.description)
+        }
+    }
+    func testPerformance_Search_Query() {
+        // This is an example of a performance test case.
+        self.measure {
+            // Put the code you want to measure the time of here.
+            searchQuery(by: "Madea Halloween") { _ in }
+        }
     }
 }

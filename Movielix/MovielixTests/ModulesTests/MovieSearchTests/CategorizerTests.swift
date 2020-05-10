@@ -28,4 +28,12 @@ class CategorizerTests: XCTestCase {
             XCTAssertEqual(result.description, ConstantTests.categorizedMovies.description)
         }
     }
+    func testPerformanceCategorize() {
+          // This is an example of a performance test case.
+          self.measure {
+              // Put the code you want to measure the time of here.
+            sut.categorize(movies: Set(ConstantTests.movies)) { _ in }
+          }
+    }
+
 }

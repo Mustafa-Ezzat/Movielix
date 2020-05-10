@@ -28,23 +28,23 @@ class RealmWorkerTests: XCTestCase {
         Realm.registerRealmables(Movie.self)
         Realm.registerRealmables(YearMives.self)
     }
-    func fetchMovies(completion: @escaping (Bool) -> Void) {
+    func writeMovies(completion: @escaping (Bool) -> Void) {
         sut.save(contentsOf: ConstantTests.movies, completion: { result in
              completion(result)
         })
     }
-    func fetchYearMovies(completion: @escaping (Bool) -> Void) {
+    func writeYearMovies(completion: @escaping (Bool) -> Void) {
         sut.save(contentsOf: ConstantTests.categorizedMovies, completion: { result in
             completion(result)
         })
     }
     func test_RealmWorker_Write_MovieList() {
-        fetchMovies { result in
+        writeMovies { result in
             XCTAssert(result)
         }
     }
     func test_RealmWorker_Write_YearMovieList() {
-        fetchYearMovies { result in
+        writeYearMovies { result in
             XCTAssert(result)
         }
     }
@@ -57,16 +57,45 @@ class RealmWorkerTests: XCTestCase {
         XCTAssertEqual(list.all().count, 0)
     }
     func test_RealmWorker_fetch_MovieList() {
-        fetchMovies { [unowned self] _ in
+        writeMovies { [unowned self] _ in
             let list = self.sut.fetch(object: Movie.self)
             XCTAssertEqual(list.all().count, ConstantTests.movies.count)
         }
     }
     func test_RealmWorker_fetch_YearMovieList() {
-        fetchYearMovies { [unowned self] _ in
+        writeYearMovies { [unowned self] _ in
             let list = self.sut.fetch(object: YearMives.self)
             XCTAssertEqual(list.all().count, ConstantTests.categorizedMovies.count)
         }
     }
 
+    func testPerformance_Write_Movies() {
+          // This is an example of a performance test case.
+          self.measure {
+              // Put the code you want to measure the time of here.
+            writeMovies {_ in}
+          }
+    }
+
+    func testPerformance_Write_YearMovies() {
+            // This is an example of a performance test case.
+            self.measure {
+                // Put the code you want to measure the time of here.
+              writeYearMovies {_ in}
+            }
+    }
+    func testPerformance_Fetch_YearMovies() {
+        self.measure {
+            writeYearMovies { [unowned self] _ in
+                _ = self.sut.fetch(object: YearMives.self)
+            }
+        }
+    }
+    func testPerformance_Fetch_Movies() {
+        self.measure {
+            writeMovies { [unowned self] _ in
+                _ = self.sut.fetch(object: Movie.self)
+            }
+        }
+    }
 }

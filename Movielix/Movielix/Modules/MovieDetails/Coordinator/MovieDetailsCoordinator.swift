@@ -10,9 +10,9 @@ import UIKit
 
 class MovieDetailsCoordinator: Coordinator {
     var navigationController: UINavigationController
-    var movie: Movie?
+    var movie: MovieViewModel?
     
-    init(navigationController: UINavigationController, movie: Movie) {
+    init(navigationController: UINavigationController, movie: MovieViewModel) {
         self.navigationController = navigationController
         self.movie = movie
     }

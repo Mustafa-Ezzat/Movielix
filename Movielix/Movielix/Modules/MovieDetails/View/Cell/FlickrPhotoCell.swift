@@ -17,7 +17,7 @@ class FlickrPhotoCell: UICollectionViewCell {
         // Initialization code
     }
 
-    func configure(photo: FlickrPhoto) {
+    func configure(photo: FlickrPhotoViewModel) {
         let options = ImageLoadingOptions(
             placeholder: UIImage(named: "logo"),
             transition: .fadeIn(duration: 0.33),

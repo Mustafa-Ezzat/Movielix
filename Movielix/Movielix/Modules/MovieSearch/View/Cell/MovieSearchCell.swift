@@ -28,7 +28,7 @@ class MovieSearchCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func configure(_ movie: Movie) {
+    func configure(_ movie: MovieViewModel) {
         titleLabel.text = movie.title
         titleLabel.font = UIFont(fontStyle: .SFProDisplayBold, size: 20)
         yearLabel.text = "\(movie.year)"

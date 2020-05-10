@@ -17,13 +17,16 @@ protocol Category {
 struct YearMives: Category {
     typealias Key = Int
     typealias Value = Movie
-    let year: Key
-    let movies: [Value]
+    let year: Key?
+    let movies: [Value]?
 }
 
 extension YearMives: Comparable & Hashable {
     static func < (lhs: YearMives, rhs: YearMives) -> Bool {
-        return lhs.year < rhs.year
+        guard let lhsYear = lhs.year, let rhsYear = rhs.year else {
+            return false
+        }
+        return lhsYear < rhsYear
     }
     static func == (lhs: YearMives, rhs: YearMives) -> Bool {
         return lhs.year == rhs.year

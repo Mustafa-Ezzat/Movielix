@@ -32,7 +32,7 @@ class MovieSearchCoordinator: Coordinator {
 
     }
     
-    func starthMovieDetails(movie: Movie) {
+    func starthMovieDetails(movie: MovieViewModel) {
         movieSearchCoordinator = MovieDetailsCoordinator(navigationController: navigationController, movie: movie)
         movieSearchCoordinator?.start()
     }

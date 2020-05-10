@@ -9,10 +9,10 @@
 import UIKit
 
 class MovieDetailsDataSource: NSObject, DataSource {
-    typealias T = FlickrPhoto
-    var list: [FlickrPhoto]
+    typealias T = FlickrPhotoViewModel
+    var list: [FlickrPhotoViewModel]
 
-    init(list: [FlickrPhoto]) {
+    init(list: [FlickrPhotoViewModel]) {
         self.list = list
     }
 }

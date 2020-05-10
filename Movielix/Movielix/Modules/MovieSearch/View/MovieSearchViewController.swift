@@ -10,8 +10,8 @@ import UIKit
 import Lottie
 
 protocol MovieSearchViewProtocol: class {
-    func display(list: [YearMives])
-    func display(list: [Movie])
+    func display(list: [YearMivesViewModel])
+    func display(list: [MovieViewModel])
 }
 
 enum DataSourceMode {
@@ -25,8 +25,8 @@ class MovieSearchViewController: UIViewController {
     var searchController: UISearchController!
     weak var coordinator: MovieSearchCoordinator?
     var interactor: MovieSearchInteractorProtocol?
-    var yearMives: [YearMives]?
-    var movies: [Movie]?
+    var yearMives: [YearMivesViewModel]?
+    var movies: [MovieViewModel]?
     var anyOrderdataSource: AnyOrderDataSource?
     var searchDataSource: MovieSearchDataSource?
 
@@ -44,7 +44,7 @@ class MovieSearchViewController: UIViewController {
     func customizeUserInteface() {
         title = "Search"
         hideBackButtonTitle()
-        movies = [Movie]()
+        movies = [MovieViewModel]()
         showNavigation()
         customizeSearchBar()
         setupTableView()
@@ -97,7 +97,7 @@ class MovieSearchViewController: UIViewController {
         self.animationView.isHidden = true
     }
     
-    func displayOrdered(with list: [YearMives]?) {
+    func displayOrdered(with list: [YearMivesViewModel]?) {
         guard let list = list else {
             return
         }
@@ -121,11 +121,11 @@ class MovieSearchViewController: UIViewController {
 }
 
 extension MovieSearchViewController: MovieSearchViewProtocol {
-    func display(list: [Movie]) {
+    func display(list: [MovieViewModel]) {
         movies = list
         reloadData(dataSourceMode: .AnyOrder)
     }
-    func display(list: [YearMives]) {
+    func display(list: [YearMivesViewModel]) {
         yearMives = list
         reloadData(dataSourceMode: .Search)
     }

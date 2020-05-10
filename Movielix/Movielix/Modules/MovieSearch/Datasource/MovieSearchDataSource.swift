@@ -14,11 +14,11 @@ protocol DataSource {
 }
 
 class MovieSearchDataSource: NSObject, DataSource {
-    typealias T = YearMives
-    var list: [YearMives]
+    typealias T = YearMivesViewModel
+    var list: [YearMivesViewModel]
     weak var view: MovieSearchViewController?
     
-    init(list: [YearMives]) {
+    init(list: [YearMivesViewModel]) {
         self.list = list
     }
 }

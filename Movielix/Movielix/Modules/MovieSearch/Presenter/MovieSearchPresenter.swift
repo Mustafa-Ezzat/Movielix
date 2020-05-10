@@ -23,9 +23,15 @@ class MovieSearchPresenter {
 
 extension MovieSearchPresenter: MovieSearchPresenterProtocol {
     func present(list: [YearMives]) {
+        let list = list.map {
+            YearMivesViewModel(yearMives: $0)
+        }
         view?.display(list: list)
     }
     func present(list: [Movie]) {
+        let list = list.map {
+            MovieViewModel(movie: $0)
+        }
         view?.display(list: list)
     }
 }

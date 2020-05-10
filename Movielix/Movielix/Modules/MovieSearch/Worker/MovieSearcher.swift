@@ -21,9 +21,12 @@ class MovieSearcher: Searcher {
     func query(list: [YearMives], keyword: String) -> [YearMives] {
         var filterdResults = [YearMives]()
         for category in list {
-            let movies = category.movies.filter{$0.isExist(keyword)}.prefix(5)
-            if !movies.isEmpty {
-                let filteredCategory = YearMives(year: category.year, movies: Array(movies))
+            guard let movies = category.movies else {
+                continue
+            }
+            let atMostTopRatedFive = movies.filter{$0.isExist(keyword)}.prefix(5)
+            if !atMostTopRatedFive.isEmpty {
+                let filteredCategory = YearMives(year: category.year, movies: Array(atMostTopRatedFive))
                 filterdResults.append(filteredCategory)
             }
         }

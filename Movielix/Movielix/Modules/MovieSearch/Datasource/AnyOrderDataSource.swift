@@ -8,11 +8,11 @@
 import UIKit
 
 class AnyOrderDataSource: NSObject, DataSource {
-    typealias T = Movie
-    var list: [Movie]
+    typealias T = MovieViewModel
+    var list: [MovieViewModel]
     weak var view: MovieSearchViewController?
 
-    init(list: [Movie]) {
+    init(list: [MovieViewModel]) {
         self.list = list
     }
 }

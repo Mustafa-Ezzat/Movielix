@@ -18,6 +18,9 @@ class MovieDetailsPresenter {
 
 extension MovieDetailsPresenter: MovieDetailsPresenterProtocol {
     func present(photos: FlickerContent) {
-        view?.display(photos: photos)
+        let list = photos.photos.photo.map {
+            FlickrPhotoViewModel(model: $0)
+        }
+        view?.display(photos: list)
     }
 }

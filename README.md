@@ -48,4 +48,4 @@ Testing is the self-documentation for each piece of the problem:
 - [Sort movies by rating](https://github.com/Mustafa-Ezzat/Movielix/blob/master/Movielix/MovielixTests/ModulesTests/MovieSearchTests/MovieSorterTests.swift)
 - [Search by keyword](https://github.com/Mustafa-Ezzat/Movielix/blob/master/Movielix/MovielixTests/ModulesTests/MovieSearchTests/MovieSearcherTests.swift)
 
-Support prefix, infix and postfix.
+Search support prefix, infix, and postfix.

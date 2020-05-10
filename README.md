@@ -41,4 +41,4 @@ TDD is self-documentation for your product, it is when your tests are written be
 
 Testing is the self-documentation for each piece of the problem:
 
-- (Read the local list of movies)[https://github.com/Mustafa-Ezzat/Movielix/blob/master/Movielix/MovielixTests/ModulesTests/MovieSearchTests/JsonReaderTests.swift]
+- [Read the local list of movies](https://github.com/Mustafa-Ezzat/Movielix/blob/master/Movielix/MovielixTests/ModulesTests/MovieSearchTests/JsonReaderTests.swift)

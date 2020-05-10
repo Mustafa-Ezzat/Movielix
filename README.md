@@ -4,6 +4,7 @@ SWVL Mobile Challenge
 
 # Table of Contents:
 - [Problem](#problem)
+- [Solution](#solution)
 
 ## Problem
 
@@ -17,3 +18,7 @@ Once a movie is selected from the search results, you will switch to a detailed 
 - Movie Cast (if any)
 - A two column list of pictures fetched from flickr that matches the movie title as the search
 query
+
+## Solution
+
+Breaking down a problem into a series of specific questions

@@ -25,6 +25,7 @@ query
 Breaking down a problem into smaller subproblems:
 
 - Read the local list of movies
+- Caching the loaded movies to minimize the parsing time
 - Display the list in any order
 - The list is searchable
 - The search results will be categorized by Year.
@@ -42,3 +43,8 @@ TDD is self-documentation for your product, it is when your tests are written be
 Testing is the self-documentation for each piece of the problem:
 
 - [Read the local list of movies](https://github.com/Mustafa-Ezzat/Movielix/blob/master/Movielix/MovielixTests/ModulesTests/MovieSearchTests/JsonReaderTests.swift)
+- [Caching](https://github.com/Mustafa-Ezzat/Movielix/blob/master/Movielix/MovielixTests/ModulesTests/MovieSearchTests/RealmWorkerTests.swift)
+- [Categorize movies per year](https://github.com/Mustafa-Ezzat/Movielix/blob/master/Movielix/MovielixTests/ModulesTests/MovieSearchTests/CategorizerTests.swift)
+- [Sort movies by rating](https://github.com/Mustafa-Ezzat/Movielix/blob/master/Movielix/MovielixTests/ModulesTests/MovieSearchTests/MovieSorterTests.swift)
+- [Search by keyword](https://github.com/Mustafa-Ezzat/Movielix/blob/master/Movielix/MovielixTests/ModulesTests/MovieSearchTests/MovieSearcherTests.swift)
+Support prefix, infix and postfix.

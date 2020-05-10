@@ -5,6 +5,7 @@ SWVL Mobile Challenge
 # Table of Contents:
 - [Problem](#problem)
 - [Solution](#solution)
+- [Testing] (#testing)
 
 ## Problem
 
@@ -33,3 +34,9 @@ Breaking down a problem into smaller subproblems:
 query
 - Display the list of pictures in a two column
 - Handle error for "Not all search terms are expected to return data from Flickr"
+
+## Testing
+
+Testing is the self-documentation for each piece of the problem
+
+TDD is self-documentation for your product, it is when your tests are written before your implementation. These are the TDD three Laws: 1) (RED) Write a failing test 2) (Green) Make the test pass 3) Refactor your code. 

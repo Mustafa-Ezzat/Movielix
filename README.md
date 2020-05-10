@@ -5,7 +5,7 @@ SWVL Mobile Challenge
 # Table of Contents:
 - [Problem](#problem)
 - [Solution](#solution)
-- [Testing] (#testing)
+- [Testing](#testing)
 
 ## Problem
 

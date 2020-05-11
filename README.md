@@ -6,6 +6,7 @@ SWVL Mobile Challenge
 - [Problem](#problem)
 - [Solution](#solution)
 - [Testing](#testing)
+- [Installation](#installation)
 
 ## Problem
 
@@ -49,3 +50,9 @@ Testing is the self-documentation for each piece of the problem:
 - [Search by keyword](https://github.com/Mustafa-Ezzat/Movielix/blob/master/Movielix/MovielixTests/ModulesTests/MovieSearchTests/MovieSearcherTests.swift)
 
 Search support prefix, infix, and postfix.
+
+## Installation
+- You have Xcode installed
+- Open your terminal 
+- We recommend to use ssh 'git clone git@github.com:Mustafa-Ezzat/Movielix.git'
+- For https 'git clone https://github.com/Mustafa-Ezzat/Movielix.git'

@@ -67,6 +67,6 @@ Hints: I recommend using ssh in other situations
 - [Unrealm](https://github.com/arturdev/Unrealm) is powerful caching swift library written over RealmCocoa, which enables Swift native types to be saved in Realm.
 - [SwiftLint](https://github.com/realm/SwiftLint) is a tool to enforce Swift style and conventions.
 
-Hint: [cocoapods](https://guides.cocoapods.org/using/using-cocoapods.html#should-i-check-the-pods-directory-into-source-control) community recommends against adding the Pods directory to your .gitignore.
+Hint: [cocoapods](https://guides.cocoapods.org/using/using-cocoapods.html#should-i-check-the-pods-directory-into-source-control) community recommends against adding the Pods directory to your [.gitignore](https://github.com/Mustafa-Ezzat/Movielix/blob/master/.gitignore).
 
 

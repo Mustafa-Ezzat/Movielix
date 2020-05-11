@@ -7,6 +7,7 @@ SWVL Mobile Challenge
 - [Solution](#solution)
 - [Testing](#testing)
 - [Installation](#installation)
+- [Third parties](#Third-parties)
 
 ## Problem
 
@@ -54,5 +55,18 @@ Search support prefix, infix, and postfix.
 ## Installation
 - You have Xcode installed
 - Open your terminal 
-- We recommend to use ssh 'git clone git@github.com:Mustafa-Ezzat/Movielix.git'
-- For https 'git clone https://github.com/Mustafa-Ezzat/Movielix.git'
+- 'git clone https://github.com/Mustafa-Ezzat/Movielix.git'
+
+Hints: I recommend using ssh in other situations
+
+## Third parties
+- [Moya](https://github.com/Moya/Moya) is a network abstraction layer written over [Alamofire](https://github.com/Alamofire/Alamofire)
+- [lottie-ios](https://github.com/airbnb/lottie-ios) is an iOS library to natively render animations, powered by airbnb
+- [Cosmos](https://github.com/evgenyneu/Cosmos) is a star rating control for iOS/tvOS written in Swift
+- [Nuke](https://github.com/kean/Nuke) is a powerful image loading and caching system
+- [Unrealm](https://github.com/arturdev/Unrealm) is powerful caching swift library written over RealmCocoa, which enables Swift native types to be saved in Realm.
+- [SwiftLint](https://github.com/realm/SwiftLint) is a tool to enforce Swift style and conventions.
+
+Hint: [cocoapods](https://guides.cocoapods.org/using/using-cocoapods.html#should-i-check-the-pods-directory-into-source-control) community recommends against adding the Pods directory to your .gitignore.
+
+

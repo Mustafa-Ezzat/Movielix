@@ -9,6 +9,7 @@ SWVL Mobile Challenge
 - [Installation](#installation)
 - [Third parties](#Third-parties)
 - [Future](#future)
+- [References](#references)
 
 ## Problem
 
@@ -74,4 +75,7 @@ Hint: [cocoapods](https://guides.cocoapods.org/using/using-cocoapods.html#should
 - Optimize the time of the [auto-complete search algorithm](https://github.com/Mustafa-Ezzat/Movielix/blob/master/Movielix/MovielixTests/ModulesTests/MovieSearchTests/MovieSearcherTests.swift) based on [trie data structure](https://www.geeksforgeeks.org/auto-complete-feature-using-trie/)
 - I recommend using [Quick](https://github.com/Quick/Quick) and [Nimble](https://github.com/Quick/Nimble) to write clear self-documentation test cases.
 
+## References
 
+- [Clean swift architecture](https://clean-swift.com/)
+- [The SOLID principles](https://www.youtube.com/watch?v=ltyI-o3DFtQ)

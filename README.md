@@ -8,6 +8,7 @@ SWVL Mobile Challenge
 - [Testing](#testing)
 - [Installation](#installation)
 - [Third parties](#Third-parties)
+- [Future](#future)
 
 ## Problem
 
@@ -68,5 +69,9 @@ Hints: I recommend using ssh in other situations
 - [SwiftLint](https://github.com/realm/SwiftLint) is a tool to enforce Swift style and conventions.
 
 Hint: [cocoapods](https://guides.cocoapods.org/using/using-cocoapods.html#should-i-check-the-pods-directory-into-source-control) community recommends against adding the Pods directory to your [.gitignore](https://github.com/Mustafa-Ezzat/Movielix/blob/master/.gitignore).
+
+## Future
+- Enhancement of the [auto-complete search algorithm](https://github.com/Mustafa-Ezzat/Movielix/blob/master/Movielix/MovielixTests/ModulesTests/MovieSearchTests/MovieSearcherTests.swift) based on [trie data structure](https://www.geeksforgeeks.org/auto-complete-feature-using-trie/)
+- I recommend using [Quick](https://github.com/Quick/Quick) and [Nimble](https://github.com/Quick/Nimble) to write clear self-documentation test cases.
 
 

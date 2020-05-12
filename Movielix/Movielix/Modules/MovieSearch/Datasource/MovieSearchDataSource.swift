@@ -8,16 +8,11 @@
 
 import UIKit
 
-protocol DataSource {
-    associatedtype Element
-    var list: [Element] {get set}
-}
-
 class MovieSearchDataSource: NSObject, DataSource {
-    typealias Element = YearMivesViewModel
-    var list: [YearMivesViewModel]
+    typealias Element = MoviesPerYearViewModel
+    var list: [MoviesPerYearViewModel]
     weak var view: MovieSearchViewController?
-    init(list: [YearMivesViewModel]) {
+    init(list: [MoviesPerYearViewModel]) {
         self.list = list
     }
 }

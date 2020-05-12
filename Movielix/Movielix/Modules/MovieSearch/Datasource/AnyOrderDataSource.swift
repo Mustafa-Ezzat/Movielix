@@ -11,7 +11,6 @@ class AnyOrderDataSource: NSObject, DataSource {
     typealias Element = MovieViewModel
     var list: [MovieViewModel]
     weak var view: MovieSearchViewController?
-
     init(list: [MovieViewModel]) {
         self.list = list
     }

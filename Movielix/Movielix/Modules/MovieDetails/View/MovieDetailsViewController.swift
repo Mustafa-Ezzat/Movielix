@@ -10,11 +10,13 @@ import UIKit
 import Cosmos
 import Lottie
 
-protocol MovieDetailsViewProtocol: class {
+typealias MovieDetailsViewProtocol = FlickrPhotoViewProtocol & BaseViewProtocol
+
+protocol FlickrPhotoViewProtocol {
     func display(photos: [FlickrPhotoViewModel])
 }
 
-class MovieDetailsViewController: UIViewController {
+class MovieDetailsViewController: BaseViewController {
     @IBOutlet weak var yearLabel: UILabel!
     @IBOutlet weak var movieCircleView: UIView!
     @IBOutlet weak var ratingView: CosmosView!
@@ -74,7 +76,7 @@ class MovieDetailsViewController: UIViewController {
     }
 }
 
-extension MovieDetailsViewController: MovieDetailsViewProtocol {
+extension MovieDetailsViewController: FlickrPhotoViewProtocol {
     func display(photos: [FlickrPhotoViewModel]) {
         datasource.list = photos
         DispatchQueue.main.async { [weak self] in

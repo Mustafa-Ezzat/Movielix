@@ -26,7 +26,7 @@ class RealmWorkerTests: XCTestCase {
     }
     func registerRealmables() {
         Realm.registerRealmables(Movie.self)
-        Realm.registerRealmables(YearMives.self)
+        Realm.registerRealmables(MoviesPerYear.self)
     }
     func writeMovies(completion: @escaping (Bool) -> Void) {
         sut.save(contentsOf: ConstantTests.movies, completion: { result in
@@ -53,7 +53,7 @@ class RealmWorkerTests: XCTestCase {
         XCTAssertEqual(list.all().count, 0)
     }
     func test_RealmWorker_fetch_YearMovieList_isEmpty() {
-        let list = sut.fetch(object: YearMives.self)
+        let list = sut.fetch(object: MoviesPerYear.self)
         XCTAssertEqual(list.all().count, 0)
     }
     func test_RealmWorker_fetch_MovieList() {
@@ -64,7 +64,7 @@ class RealmWorkerTests: XCTestCase {
     }
     func test_RealmWorker_fetch_YearMovieList() {
         writeYearMovies { [unowned self] _ in
-            let list = self.sut.fetch(object: YearMives.self)
+            let list = self.sut.fetch(object: MoviesPerYear.self)
             XCTAssertEqual(list.all().count, ConstantTests.categorizedMovies.count)
         }
     }
@@ -87,7 +87,7 @@ class RealmWorkerTests: XCTestCase {
     func testPerformance_Fetch_YearMovies() {
         self.measure {
             writeYearMovies { [unowned self] _ in
-                _ = self.sut.fetch(object: YearMives.self)
+                _ = self.sut.fetch(object: MoviesPerYear.self)
             }
         }
     }

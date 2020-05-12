@@ -16,13 +16,13 @@ protocol Categorizer {
 
 class MovieCategorizer: Categorizer {
     typealias Input = Movie
-    typealias Output = YearMives
+    typealias Output = MoviesPerYear
 
-    func categorize(movies: Set<Movie>, completion: @escaping ([YearMives]) -> Void) {
+    func categorize(movies: Set<Movie>, completion: @escaping ([MoviesPerYear]) -> Void) {
         let sorter = MovieSorter()
         let sorted = sorter.sort(list: Array(movies))
         let categoryDictionary = Dictionary(grouping: sorted) { $0.year }
-        let movieList = categoryDictionary.map {YearMives(year: $0.key ?? 1900, movies: $0.value)}.sorted { $0 > $1 }
+        let movieList = categoryDictionary.map {MoviesPerYear(year: $0.key ?? 1900, movies: $0.value)}.sorted { $0 > $1 }
         completion(movieList)
     }
 }

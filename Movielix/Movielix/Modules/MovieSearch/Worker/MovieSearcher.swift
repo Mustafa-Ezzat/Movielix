@@ -15,17 +15,17 @@ protocol Searcher {
 }
 
 class MovieSearcher: Searcher {
-    typealias Element = YearMives
+    typealias Element = MoviesPerYear
     typealias Keyword = String
-    func query(list: [YearMives], keyword: String) -> [YearMives] {
-        var filterdResults = [YearMives]()
+    func query(list: [MoviesPerYear], keyword: String) -> [MoviesPerYear] {
+        var filterdResults = [MoviesPerYear]()
         for category in list {
             guard let movies = category.movies else {
                 continue
             }
             let atMostTopRatedFive = movies.filter {$0.isExist(keyword)}.prefix(5)
             if !atMostTopRatedFive.isEmpty {
-                let filteredCategory = YearMives(year: category.year, movies: Array(atMostTopRatedFive))
+                let filteredCategory = MoviesPerYear(year: category.year, movies: Array(atMostTopRatedFive))
                 filterdResults.append(filteredCategory)
             }
         }

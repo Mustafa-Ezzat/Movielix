@@ -9,7 +9,7 @@
 import UIKit
 import Lottie
 
-class LaunchViewController: UIViewController {
+class LaunchViewController: BaseViewController {
     @IBOutlet weak var animationView: AnimationView!
     @IBOutlet weak var titleLabel: UILabel!
     weak var coordinator: LaunchCoordinator?

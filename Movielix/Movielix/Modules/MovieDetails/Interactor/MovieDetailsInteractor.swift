@@ -27,12 +27,11 @@ extension MovieDetailsInteractor: MovieDetailsInteractorProtocol {
                     let decodableResponse = try response.map(FlickerContent.self)
                     self.presenter?.present(photos: decodableResponse)
                 } catch {
-                    print(error.localizedDescription)
+                    self.presenter?.present(error: error.localizedDescription)
                 }
             case .failure(let error):
-                print(error.localizedDescription)
+                self.presenter?.present(error: error.localizedDescription)
             }
         }
-
     }
 }

@@ -22,7 +22,7 @@ class MovieSearcherTests: XCTestCase {
         sut = nil
         super.tearDown()
     }
-    func searchQuery(by keyword: String, completion: @escaping ([YearMives]) -> Void) {
+    func searchQuery(by keyword: String, completion: @escaping ([MoviesPerYear]) -> Void) {
         let result =  sut.query(list: ConstantTests.categorizedMovies, keyword: keyword)
         completion(result)
     }

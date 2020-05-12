@@ -1,5 +1,5 @@
 //
-//  YearMivesViewModel.swift
+//  MoviesPerYearViewModel.swift
 //  Movielix
 //
 //  Created by Mustafa Ezzat on 5/10/20.
@@ -8,19 +8,19 @@
 
 import Foundation
 
-struct YearMivesViewModel {
-    private var yearMives: YearMives
-    init(yearMives: YearMives) {
-        self.yearMives = yearMives
+struct MoviesPerYearViewModel {
+    private var moviesPerYear: MoviesPerYear
+    init(moviesPerYear: MoviesPerYear) {
+        self.moviesPerYear = moviesPerYear
     }
     var year: Int {
-        guard let year = yearMives.year else {
+        guard let year = moviesPerYear.year else {
             return 1970
         }
         return year
     }
     var movies: [MovieViewModel] {
-        guard let movies = yearMives.movies else {
+        guard let movies = moviesPerYear.movies else {
             return []
         }
         let list = movies.map {

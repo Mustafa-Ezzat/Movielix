@@ -10,6 +10,12 @@
 		78425EE6D78533A6836CBE79 /* Pods_Movielix_MovielixUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B265D64B8777D4FA07C8273 /* Pods_Movielix_MovielixUITests.framework */; };
 		9332251662091178F36C4CC6 /* Pods_Movielix.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5843E2EFA73F9DDAA4B565C2 /* Pods_Movielix.framework */; };
 		A94A13CBE1FBB51660A6743F /* Pods_MovielixTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9630F13CF3940A9C6195E33 /* Pods_MovielixTests.framework */; };
+		D6589093246A42BE007D9D42 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6589092246A42BE007D9D42 /* BaseViewController.swift */; };
+		D6589098246A520D007D9D42 /* BasePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6589097246A520D007D9D42 /* BasePresenter.swift */; };
+		D658909B246A5281007D9D42 /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D658909A246A5281007D9D42 /* DataSource.swift */; };
+		D658909E246A60B8007D9D42 /* EmptyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D658909C246A60B8007D9D42 /* EmptyCell.swift */; };
+		D658909F246A60B8007D9D42 /* EmptyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D658909D246A60B8007D9D42 /* EmptyCell.xib */; };
+		D65890A1246A63A3007D9D42 /* EmptyDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65890A0246A63A3007D9D42 /* EmptyDataSource.swift */; };
 		D69355132463291500B90B0F /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69355122463291500B90B0F /* ReusableView.swift */; };
 		D69355162463299200B90B0F /* UITableViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69355152463299200B90B0F /* UITableViewCell+Extension.swift */; };
 		D693551824632A1100B90B0F /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D693551724632A1100B90B0F /* UITableView+Extension.swift */; };
@@ -105,6 +111,12 @@
 		862CFFB997F1DA302A938AD7 /* Pods-Movielix.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movielix.debug.xcconfig"; path = "Target Support Files/Pods-Movielix/Pods-Movielix.debug.xcconfig"; sourceTree = "<group>"; };
 		87467C7D3B3C7D0399372BBF /* Pods-MovielixTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovielixTests.release.xcconfig"; path = "Target Support Files/Pods-MovielixTests/Pods-MovielixTests.release.xcconfig"; sourceTree = "<group>"; };
 		BC2098BDFFAE6FED290C5D4B /* Pods-MovielixTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovielixTests.debug.xcconfig"; path = "Target Support Files/Pods-MovielixTests/Pods-MovielixTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D6589092246A42BE007D9D42 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		D6589097246A520D007D9D42 /* BasePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePresenter.swift; sourceTree = "<group>"; };
+		D658909A246A5281007D9D42 /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
+		D658909C246A60B8007D9D42 /* EmptyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCell.swift; sourceTree = "<group>"; };
+		D658909D246A60B8007D9D42 /* EmptyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyCell.xib; sourceTree = "<group>"; };
+		D65890A0246A63A3007D9D42 /* EmptyDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyDataSource.swift; sourceTree = "<group>"; };
 		D69355122463291500B90B0F /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
 		D69355152463299200B90B0F /* UITableViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extension.swift"; sourceTree = "<group>"; };
 		D693551724632A1100B90B0F /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
@@ -222,11 +234,48 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		D6589094246A519A007D9D42 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				D693552A24634CB300B90B0F /* Generic */,
+				D693554324636D5B00B90B0F /* Coordinator */,
+				D6589099246A526B007D9D42 /* Datasource */,
+				D6589096246A51B3007D9D42 /* Presenter */,
+				D6589095246A51AE007D9D42 /* View */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		D6589095246A51AE007D9D42 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D6589092246A42BE007D9D42 /* BaseViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D6589096246A51B3007D9D42 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				D6589097246A520D007D9D42 /* BasePresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		D6589099246A526B007D9D42 /* Datasource */ = {
+			isa = PBXGroup;
+			children = (
+				D658909A246A5281007D9D42 /* DataSource.swift */,
+			);
+			path = Datasource;
+			sourceTree = "<group>";
+		};
 		D693551024631D4D00B90B0F /* Modules */ = {
 			isa = PBXGroup;
 			children = (
 				D693551D2463300100B90B0F /* MovieSearch */,
 				D6935554246382A200B90B0F /* MovieDetails */,
+				D6589094246A519A007D9D42 /* Base */,
 				D69355462463704400B90B0F /* Launch */,
 			);
 			path = Modules;
@@ -275,7 +324,6 @@
 		D693552A24634CB300B90B0F /* Generic */ = {
 			isa = PBXGroup;
 			children = (
-				D693554324636D5B00B90B0F /* Coordinator */,
 				D693553C2463526E00B90B0F /* Reusable */,
 				D693552D24634CDC00B90B0F /* Response */,
 			);
@@ -449,6 +497,7 @@
 			children = (
 				D693556F2463C2FD00B90B0F /* MovieSearchDataSource.swift */,
 				D693557C2463CD1F00B90B0F /* AnyOrderDataSource.swift */,
+				D65890A0246A63A3007D9D42 /* EmptyDataSource.swift */,
 			);
 			path = Datasource;
 			sourceTree = "<group>";
@@ -458,6 +507,8 @@
 			children = (
 				D69355782463C58A00B90B0F /* MovieSearchCell.swift */,
 				D69355792463C58A00B90B0F /* MovieSearchCell.xib */,
+				D658909C246A60B8007D9D42 /* EmptyCell.swift */,
+				D658909D246A60B8007D9D42 /* EmptyCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -517,7 +568,6 @@
 				D69355872463D93300B90B0F /* Helpers */,
 				D693553D2463547100B90B0F /* Resources */,
 				D69355112463243D00B90B0F /* Extensions */,
-				D693552A24634CB300B90B0F /* Generic */,
 				D693551024631D4D00B90B0F /* Modules */,
 				D69481A02462FAE000CE18D5 /* AppDelegate.swift */,
 				D69481A92462FAE100CE18D5 /* Assets.xcassets */,
@@ -754,6 +804,7 @@
 				D693555A246382E000B90B0F /* MovieDetailsViewController.xib in Resources */,
 				D69355852463D8CB00B90B0F /* SF-Pro-Display-Medium.otf in Resources */,
 				D69355842463D8CB00B90B0F /* SF-Pro-Display-Bold.otf in Resources */,
+				D658909F246A60B8007D9D42 /* EmptyCell.xib in Resources */,
 				D69355832463D8CB00B90B0F /* SF-Pro-Display-Regular.otf in Resources */,
 				D69355222463304800B90B0F /* MovieSearchViewController.xib in Resources */,
 				D6C8492E2464C28D002A220A /* FlickrPhotoCell.xib in Resources */,
@@ -904,12 +955,17 @@
 				D6C8494424663FD1002A220A /* UIImageView+Extension.swift in Sources */,
 				D693555C246382FB00B90B0F /* MovieDetailsCoordinator.swift in Sources */,
 				D6935559246382E000B90B0F /* MovieDetailsViewController.swift in Sources */,
+				D6589093246A42BE007D9D42 /* BaseViewController.swift in Sources */,
 				D6C8491B2464A99C002A220A /* MoyaDetailsConstant.swift in Sources */,
 				D69355502463764500B90B0F /* LaunchCoordinator.swift in Sources */,
+				D658909B246A5281007D9D42 /* DataSource.swift in Sources */,
 				D693556A2463AE6900B90B0F /* MovieCatogrizer.swift in Sources */,
 				D693555324637A9700B90B0F /* MovieSearchCoordinator.swift in Sources */,
 				D69355132463291500B90B0F /* ReusableView.swift in Sources */,
+				D65890A1246A63A3007D9D42 /* EmptyDataSource.swift in Sources */,
+				D658909E246A60B8007D9D42 /* EmptyCell.swift in Sources */,
 				D6C84950246789CA002A220A /* FlickrPhotoViewModel.swift in Sources */,
+				D6589098246A520D007D9D42 /* BasePresenter.swift in Sources */,
 				D693557D2463CD1F00B90B0F /* AnyOrderDataSource.swift in Sources */,
 				D69355162463299200B90B0F /* UITableViewCell+Extension.swift in Sources */,
 				D693557A2463C58A00B90B0F /* MovieSearchCell.swift in Sources */,

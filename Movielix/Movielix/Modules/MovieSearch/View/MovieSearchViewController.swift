@@ -9,9 +9,14 @@
 import UIKit
 import Lottie
 
-protocol MovieSearchViewProtocol: class {
-    func display(list: [YearMivesViewModel])
+typealias MovieSearchViewProtocol = MoviesListProtocol & MoviesPerYearProtocol & BaseViewProtocol
+
+protocol MoviesListProtocol {
     func display(list: [MovieViewModel])
+}
+
+protocol MoviesPerYearProtocol {
+    func display(list: [MoviesPerYearViewModel])
 }
 
 enum DataSourceMode {
@@ -19,16 +24,17 @@ enum DataSourceMode {
     case search
 }
 
-class MovieSearchViewController: UIViewController {
+class MovieSearchViewController: BaseViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var animationView: AnimationView!
     var searchController: UISearchController!
     weak var coordinator: MovieSearchCoordinator?
     var interactor: MovieSearchInteractorProtocol?
-    var yearMives: [YearMivesViewModel]?
+    var moviesPerYear: [MoviesPerYearViewModel]?
     var movies: [MovieViewModel]?
     var anyOrderdataSource: AnyOrderDataSource?
     var searchDataSource: MovieSearchDataSource?
+    var emptyDataSource: EmptyDataSource?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,8 +80,10 @@ class MovieSearchViewController: UIViewController {
         anyOrderdataSource?.view = self
         searchDataSource = MovieSearchDataSource(list: [])
         searchDataSource?.view = self
+        emptyDataSource = EmptyDataSource()
         tableView.tableHeaderView = searchController.searchBar
         tableView.register(cell: MovieSearchCell.self)
+        tableView.register(cell: EmptyCell.self)
         tableView.dataSource = anyOrderdataSource
         tableView.delegate = anyOrderdataSource
     }
@@ -88,7 +96,7 @@ class MovieSearchViewController: UIViewController {
         self.tableView.delegate = self.anyOrderdataSource
         self.animationView.isHidden = true
     }
-    func displayOrdered(with list: [YearMivesViewModel]?) {
+    func displayOrdered(with list: [MoviesPerYearViewModel]?) {
         guard let list = list else {
             return
         }
@@ -103,21 +111,18 @@ class MovieSearchViewController: UIViewController {
             case .anyOrder:
                 self.displayAnyOrder()
             case .search:
-                self.displayOrdered(with: self.yearMives)
+                self.displayOrdered(with: self.moviesPerYear)
             }
             self.tableView.reloadData()
         }
     }
-}
-
-extension MovieSearchViewController: MovieSearchViewProtocol {
-    func display(list: [MovieViewModel]) {
-        movies = list
-        reloadData(dataSourceMode: .anyOrder)
-    }
-    func display(list: [YearMivesViewModel]) {
-        yearMives = list
-        reloadData(dataSourceMode: .search)
+    func handleEmptyMovieList() {
+        DispatchQueue.main.async { [unowned self] in
+            self.tableView.dataSource = self.emptyDataSource
+            self.tableView.delegate = self.emptyDataSource
+            self.tableView.reloadData()
+            self.animationView.isHidden = true
+        }
     }
 }
 
@@ -128,5 +133,27 @@ extension MovieSearchViewController: UISearchResultsUpdating {
             return
         }
         interactor?.search(by: keyword)
+    }
+}
+
+extension MovieSearchViewController: MoviesListProtocol {
+    func display(list: [MovieViewModel]) {
+        movies = list
+        guard list.count > 0 else {
+            handleEmptyMovieList()
+            return
+        }
+        reloadData(dataSourceMode: .anyOrder)
+    }
+}
+
+extension MovieSearchViewController: MoviesPerYearProtocol {
+    func display(list: [MoviesPerYearViewModel]) {
+        moviesPerYear = list
+        guard list.count > 0 else {
+            handleEmptyMovieList()
+            return
+        }
+        reloadData(dataSourceMode: .search)
     }
 }

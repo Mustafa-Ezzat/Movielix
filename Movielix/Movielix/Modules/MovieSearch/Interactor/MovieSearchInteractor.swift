@@ -8,25 +8,34 @@
 
 import Foundation
 
-protocol MovieSearchInteractorProtocol {
+typealias MovieSearchInteractorProtocol = ReadMoviesInteractorProtocol & FetchCachingMoviesInteractorProtocol & SearchInteractorProtocol
+
+protocol ReadMoviesInteractorProtocol {
     func readMovies(completionHandler: @escaping (Result<MovieResponse, Error>) -> Void)
+}
+
+protocol FetchCachingMoviesInteractorProtocol {
     func fetchMovies()
+}
+
+protocol SearchInteractorProtocol {
     func search(by keyword: String)
 }
 
 class MovieSearchInteractor {
     var presenter: MovieSearchPresenterProtocol?
+    // some workers
     var reader: Reader?
     var categorizer: MovieCategorizer?
     var searcher: MovieSearcher?
-    var list: [YearMives]?
+    var list: [MoviesPerYear]?
     var realmWorker: RealmWorker?
     init() {
         // Single responsability one reason to change
         reader = JsonReader()
         categorizer = MovieCategorizer()
         searcher = MovieSearcher()
-        list = [YearMives]()
+        list = [MoviesPerYear]()
         realmWorker = RealmWorker()
     }
     deinit {
@@ -49,14 +58,7 @@ class MovieSearchInteractor {
     }
 }
 
-extension MovieSearchInteractor: MovieSearchInteractorProtocol {
-    func fetchMovies() {
-        guard let presenter = self.presenter, let realmWorker = self.realmWorker else {
-            return
-        }
-        list = realmWorker.fetch(object: YearMives.self).all()
-        presenter.present(list: realmWorker.fetch(object: Movie.self).all())
-    }
+extension MovieSearchInteractor: ReadMoviesInteractorProtocol {
     func readMovies(completionHandler: @escaping (Result<MovieResponse, Error>) -> Void) {
         DispatchQueue.global(qos: .utility).async { [weak self] in
             guard let self = self else {
@@ -67,18 +69,36 @@ extension MovieSearchInteractor: MovieSearchInteractorProtocol {
                 case .success(let response):
                     self.categorize(response.movies)
                 case .failure(let error):
-                    print(error.localizedDescription)
+                    switch error {
+                    case ReaderError.invalidFileName:
+                        self.presenter?.present(error: "Invalid file name")
+                    default:
+                        self.presenter?.present(error: error.localizedDescription)
+                    }
                 }
             }
         }
     }
+}
+
+extension MovieSearchInteractor: FetchCachingMoviesInteractorProtocol {
+    func fetchMovies() {
+        guard let presenter = self.presenter, let realmWorker = self.realmWorker else {
+            return
+        }
+        list = realmWorker.fetch(object: MoviesPerYear.self).all()
+        presenter.present(list: realmWorker.fetch(object: Movie.self).all())
+    }
+}
+
+extension MovieSearchInteractor: SearchInteractorProtocol {
     func search(by keyword: String) {
         DispatchQueue.global(qos: .utility).async { [weak self] in
             guard let self = self, let presenter = self.presenter else {
                 return
             }
             guard let searcher = self.searcher, let list = self.list else {
-                presenter.present(list: [YearMives]())
+                presenter.present(list: [MoviesPerYear]())
                 return
             }
             let result = searcher.query(list: list, keyword: keyword)

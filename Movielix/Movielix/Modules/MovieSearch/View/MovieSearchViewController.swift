@@ -9,13 +9,18 @@
 import UIKit
 import Lottie
 
-typealias MovieSearchViewProtocol = MoviesListProtocol & MoviesPerYearProtocol & BaseViewProtocol
+/*typealias MovieSearchViewProtocol = MoviesListProtocol & MoviesPerYearProtocol & BaseViewProtocol
 
 protocol MoviesListProtocol {
     func display(list: [MovieViewModel])
 }
 
 protocol MoviesPerYearProtocol {
+    func display(list: [MoviesPerYearViewModel])
+}*/
+typealias MovieSearchViewProtocol = SearchViewProtocol & BaseViewProtocol
+protocol SearchViewProtocol {
+    func display(list: [MovieViewModel])
     func display(list: [MoviesPerYearViewModel])
 }
 
@@ -136,6 +141,26 @@ extension MovieSearchViewController: UISearchResultsUpdating {
     }
 }
 
+extension MovieSearchViewController: SearchViewProtocol {
+    func display(list: [MovieViewModel]) {
+        movies = list
+        guard list.count > 0 else {
+            handleEmptyMovieList()
+            return
+        }
+        reloadData(dataSourceMode: .anyOrder)
+    }
+    func display(list: [MoviesPerYearViewModel]) {
+        moviesPerYear = list
+        guard list.count > 0 else {
+            handleEmptyMovieList()
+            return
+        }
+        reloadData(dataSourceMode: .search)
+    }
+}
+
+/*
 extension MovieSearchViewController: MoviesListProtocol {
     func display(list: [MovieViewModel]) {
         movies = list
@@ -157,3 +182,4 @@ extension MovieSearchViewController: MoviesPerYearProtocol {
         reloadData(dataSourceMode: .search)
     }
 }
+*/

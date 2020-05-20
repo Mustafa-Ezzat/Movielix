@@ -8,13 +8,18 @@
 
 import Foundation
 
-typealias MovieSearchPresenterProtocol = MoviesPerYearPresenterProtocol & MovieListPresenterProtocol & BasePresenterProtocol
+/*typealias MovieSearchPresenterProtocol = MoviesPerYearPresenterProtocol & MovieListPresenterProtocol & BasePresenterProtocol
 
 protocol MoviesPerYearPresenterProtocol {
     func present(list: [MoviesPerYear])
 }
 
 protocol MovieListPresenterProtocol {
+    func present(list: [Movie])
+}*/
+typealias MovieSearchPresenterProtocol = SearchPresenterProtocol & BasePresenterProtocol
+protocol SearchPresenterProtocol {
+    func present(list: [MoviesPerYear])
     func present(list: [Movie])
 }
 
@@ -24,7 +29,7 @@ class MovieSearchPresenter {
         print("MovieSearchPresenter deinit successfully...")
     }
 }
-
+/*
 extension MovieSearchPresenter: MovieListPresenterProtocol {
     func present(list: [Movie]) {
         let list = list.map {
@@ -41,6 +46,23 @@ extension MovieSearchPresenter: MoviesPerYearPresenterProtocol {
         view?.display(list: list)
     }
 }
+ */
+extension MovieSearchPresenter: SearchPresenterProtocol {
+    func present(list: [Movie]) {
+        let list = list.map {
+            MovieViewModel(movie: $0)
+        }
+        view?.display(list: list)
+    }
+
+    func present(list: [MoviesPerYear]) {
+        let list = list.map {
+            MoviesPerYearViewModel(moviesPerYear: $0)
+        }
+        view?.display(list: list)
+    }
+}
+
 //
 extension MovieSearchPresenter: BasePresenterProtocol {
     func present(error: String) {

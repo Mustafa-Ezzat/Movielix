@@ -8,7 +8,7 @@
 
 import Foundation
 
-typealias MovieSearchInteractorProtocol = ReadMoviesInteractorProtocol & FetchCachingMoviesInteractorProtocol & SearchInteractorProtocol
+/*typealias MovieSearchInteractorProtocol = ReadMoviesInteractorProtocol & FetchCachingMoviesInteractorProtocol & SearchInteractorProtocol
 
 protocol ReadMoviesInteractorProtocol {
     func readMovies(completionHandler: @escaping (Result<MovieResponse, Error>) -> Void)
@@ -19,6 +19,11 @@ protocol FetchCachingMoviesInteractorProtocol {
 }
 
 protocol SearchInteractorProtocol {
+    func search(by keyword: String)
+}*/
+protocol MovieSearchInteractorProtocol {
+    func readMovies(completionHandler: @escaping (Result<MovieResponse, Error>) -> Void)
+    func fetchMovies()
     func search(by keyword: String)
 }
 
@@ -58,6 +63,52 @@ class MovieSearchInteractor {
     }
 }
 
+extension MovieSearchInteractor: MovieSearchInteractorProtocol {
+    func readMovies(completionHandler: @escaping (Result<MovieResponse, Error>) -> Void) {
+        DispatchQueue.global(qos: .utility).async { [weak self] in
+            guard let self = self else {
+                return
+            }
+            self.reader?.read {  result in
+                switch result {
+                case .success(let response):
+                    self.categorize(response.movies)
+                case .failure(let error):
+                    switch error {
+                    case ReaderError.invalidFileName:
+                        self.presenter?.present(error: "Invalid file name")
+                    default:
+                        self.presenter?.present(error: error.localizedDescription)
+                    }
+                }
+            }
+        }
+    }
+
+    func fetchMovies() {
+        guard let presenter = self.presenter, let realmWorker = self.realmWorker else {
+            return
+        }
+        list = realmWorker.fetch(object: MoviesPerYear.self).all()
+        presenter.present(list: realmWorker.fetch(object: Movie.self).all())
+    }
+
+    func search(by keyword: String) {
+        DispatchQueue.global(qos: .utility).async { [weak self] in
+            guard let self = self, let presenter = self.presenter else {
+                return
+            }
+            guard let searcher = self.searcher, let list = self.list else {
+                presenter.present(list: [MoviesPerYear]())
+                return
+            }
+            let result = searcher.query(list: list, keyword: keyword)
+            presenter.present(list: result)
+        }
+    }
+}
+
+/*
 extension MovieSearchInteractor: ReadMoviesInteractorProtocol {
     func readMovies(completionHandler: @escaping (Result<MovieResponse, Error>) -> Void) {
         DispatchQueue.global(qos: .utility).async { [weak self] in
@@ -106,3 +157,4 @@ extension MovieSearchInteractor: SearchInteractorProtocol {
         }
     }
 }
+*/

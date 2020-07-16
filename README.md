@@ -1,6 +1,6 @@
 # Movielix
 
-SWVL Mobile Challenge
+Mobile app
 
 # Table of Contents:
 - [Problem](#problem)
